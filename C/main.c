@@ -25,7 +25,7 @@ void main(){
 		printf("\n");
 		printf("Opción? ->  ");
 		scanf("%d",&opcion);
-
+		//Cuando elijamos alguna de las opciones...
 		switch(opcion){
 		case 1:
 		break;
