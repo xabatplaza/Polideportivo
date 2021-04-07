@@ -26,6 +26,50 @@ void clearIfNeeded(char *str, int max_line)
 					while (getchar() != '\n');
 			}
 
+void mainn(){
+		char usuario[Longitud];
+		char clave[Longitud];
+		int intento= 0;
+		int ingresa= 0;
+
+		do {
+			system("cls");
+			printf("\n\t\t\t INICIAR SESION EN EL POLIDEPORTIVO\n");
+			printf("\t\t\t\t **********************************\n");
+			printf("\n\t USUARIO: ");
+			fflush(stdout);
+
+			fgets(usuario, Longitud, stdin);
+			clearIfNeeded(usuario, Longitud);
+			usuario[strcspn(usuario, "\r\n")] = 0;
+
+			printf("\t CONTRASEÑA: ");
+			fflush(stdout);
+			fgets(clave, Longitud, stdin);
+			clearIfNeeded(clave, Longitud);
+			clave[strcspn(clave, "\r\n")] = 0;
+
+
+			if (strcmp(usuario,Usuario)==0 && strcmp(clave,Clave)==0) {
+				ingresa=1;
+
+			}else {
+				printf("\n\t Usuario y/o clave son incorrectos\n");
+				intento++;
+				getchar();
+
+			}
+		} while (intento<3 && ingresa==0);
+
+		if (ingresa==1) {
+			printf("\n\t Bienvenido al sistema\n");
+
+			//Ir a la ventana correspondiente
+		}else{
+			printf("\n\t Has sobrepasado el numero maximo de intentos\n");
+		}
+	}
+
  void main(){
 	int opcion;
 
@@ -40,17 +84,17 @@ void clearIfNeeded(char *str, int max_line)
 		scanf("%d",&opcion);
 		//Cuando elijamos alguna de las opciones...
 		switch(opcion){
-		char usuario[Longitud];
-		char clave[Longitud];
-		int intento= 0;
-		int ingresa= 0;
-		case 1:
+			char usuario[Longitud];
+			char clave[Longitud];
+			int intento= 0;
+			int ingresa= 0;
 
+			case 1:
 				do {
 					system("cls");
 					printf("\n\t\t\t INICIAR SESION EN EL POLIDEPORTIVO\n");
 					printf("\t\t\t\t **********************************\n");
-					printf("\n\t USUARIO: \n");
+					printf("\n\t USUARIO: ");
 					fflush(stdout);
 
 					fgets(usuario, Longitud, stdin);
@@ -82,20 +126,21 @@ void clearIfNeeded(char *str, int max_line)
 				}else{
 					printf("\n\t Has sobrepasado el numero maximo de intentos\n");
 				}
-			break;
+				break;
 
-		case 2:
-		break;
+			case 2:
+				mainn();
+				break;
 
-		case 3:
-		break;
+			case 3:
+				break;
 
-		case 4:
-		break;
+			case 4:
+				break;
 
-		case 5:
-		break;
+			case 5:
+				break;
+			}
 		}
-	}
 }
 
