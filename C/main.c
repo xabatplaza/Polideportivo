@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 //Se mostrará el siguiente menú en la pantalla principal
-void main(){
+ void main(){
 	int opcion;
 
 	while(opcion!=5 || opcion>5){
