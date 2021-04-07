@@ -50,6 +50,8 @@ int main(){
 
 	if (ingresa==1) {
 		printf("\n\t Bienvenido al sistema\n");
+
+		//Ir a la ventana correspondiente
 	}else{
 		printf("\n\t Has sobrepasado el numero maximo de intentos\n");
 	}

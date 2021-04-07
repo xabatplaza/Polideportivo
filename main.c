@@ -12,7 +12,20 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 //Se mostrará el siguiente menú en la pantalla principal
+
+#define Usuario "admin1"
+#define Clave "1234"
+#define Longitud 80
+
+void clearIfNeeded(char *str, int max_line)
+			{
+				// Limpia los caracteres de más introducidos
+				if ((strlen(str) == max_line-1) && (str[max_line-2] != '\n'))
+					while (getchar() != '\n');
+			}
+
  void main(){
 	int opcion;
 
@@ -27,8 +40,49 @@
 		scanf("%d",&opcion);
 		//Cuando elijamos alguna de las opciones...
 		switch(opcion){
+		char usuario[Longitud];
+		char clave[Longitud];
+		int intento= 0;
+		int ingresa= 0;
 		case 1:
-		break;
+
+				do {
+					system("cls");
+					printf("\n\t\t\t INICIAR SESION EN EL POLIDEPORTIVO\n");
+					printf("\t\t\t\t **********************************\n");
+					printf("\n\t USUARIO: \n");
+					fflush(stdout);
+
+					fgets(usuario, Longitud, stdin);
+					clearIfNeeded(usuario, Longitud);
+					usuario[strcspn(usuario, "\r\n")] = 0;
+
+					printf("\t CONTRASEÑA: ");
+					fflush(stdout);
+					fgets(clave, Longitud, stdin);
+					clearIfNeeded(clave, Longitud);
+					clave[strcspn(clave, "\r\n")] = 0;
+
+
+					if (strcmp(usuario,Usuario)==0 && strcmp(clave,Clave)==0) {
+						ingresa=1;
+
+					}else {
+						printf("\n\t Usuario y/o clave son incorrectos\n");
+						intento++;
+						getchar();
+
+					}
+				} while (intento<3 && ingresa==0);
+
+				if (ingresa==1) {
+					printf("\n\t Bienvenido al sistema\n");
+
+					//Ir a la ventana correspondiente
+				}else{
+					printf("\n\t Has sobrepasado el numero maximo de intentos\n");
+				}
+			break;
 
 		case 2:
 		break;
