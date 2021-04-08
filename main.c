@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 //Se mostrará el siguiente menú en la pantalla principal
 
 #define Usuario "admin1"
@@ -43,16 +44,64 @@ char menu(){
 		return *linea;
 }
 
+char menuAdministrador(){ ///cambiar por los valores que queramos introducir
+		printf("\n1. Iniciar sesion como administrador\n");
+		printf("2. Iniciar sesion como socio\n");
+		printf("3. Iniciar sesion como trabajador\n");
+		printf("4. Registrarse como nuevo socio\n");
+		printf("5. Salir\n");
+		printf("\n");
+		printf("Opcion? ->  ");
+		fflush(stdout);
+		char linea[MAX_LINE];
+		fgets(linea, MAX_LINE, stdin);
+		clearIfNeeded(linea, MAX_LINE);
+		return *linea;
+}
+
+char menuSocio(){ ///cambiar por los valores que queramos introducir
+		printf("\n1. Iniciar sesion como administrador\n");
+		printf("2. Iniciar sesion como socio\n");
+		printf("3. Iniciar sesion como trabajador\n");
+		printf("4. Registrarse como nuevo socio\n");
+		printf("5. Salir\n");
+		printf("\n");
+		printf("Opcion? ->  ");
+		fflush(stdout);
+		char linea[MAX_LINE];
+		fgets(linea, MAX_LINE, stdin);
+		clearIfNeeded(linea, MAX_LINE);
+		return *linea;
+}
+
+char menuTrabajador(){ ///cambiar por los valores que queramos introducir
+		printf("\n1. Iniciar sesion como administrador\n");
+		printf("2. Iniciar sesion como socio\n");
+		printf("3. Iniciar sesion como trabajador\n");
+		printf("4. Registrarse como nuevo socio\n");
+		printf("5. Salir\n");
+		printf("\n");
+		printf("Opcion? ->  ");
+		fflush(stdout);
+		char linea[MAX_LINE];
+		fgets(linea, MAX_LINE, stdin);
+		clearIfNeeded(linea, MAX_LINE);
+		return *linea;
+}
+
 void logIn(){
 	char usuario[Longitud];
 	char clave[Longitud];
 	int intento= 0;
 	int ingresa= 0;
+	int i;
+	char caracter;
 
 	do {
+		i=0;
 		system("cls");
 		printf("\n\t\t\t INICIAR SESION EN EL POLIDEPORTIVO\n");
-		printf("\t\t\t\t **********************************\n");
+		printf("\t\t\t **********************************\n");
 		printf("\n\t USUARIO: ");
 		fflush(stdout);
 
@@ -63,6 +112,25 @@ void logIn(){
 		printf("\t CONTRASEÑA: ");
 		fflush(stdout);
 		fgets(clave, Longitud, stdin);
+
+		/*while (caracter=getch()){					Esta función sirve para poner la contraseña oculta
+			if (caracter==13){
+				clave[i]= '\0';
+				break;
+			}else if(caracter==8){
+				if(i>0){
+					i--;
+					printf("\b \b");
+				}
+			}else{
+				if(i<Longitud){
+					printf("*");
+					clave[i]= caracter;
+					i++;
+				}
+			}
+		}*/
+
 		clearIfNeeded(clave, Longitud);
 		clave[strcspn(clave, "\r\n")] = 0;
 
@@ -79,9 +147,9 @@ void logIn(){
 	} while (intento<3 && ingresa==0);
 
 	if (ingresa==1) {
-		printf("\n\t Bienvenido al sistema\n");
+		printf("\n\t ¡Bienvenido al sistema!\n");
+		menuAdministrador();// aqui se añade el menu de administrador una vez puesta la contraseña correcta
 
-		//Ir a la ventana correspondiente
 	}else{
 		printf("\n\t Has sobrepasado el numero maximo de intentos\n");
 	}
@@ -106,7 +174,7 @@ int main(void){
 
 			case '5':
 					break;
-		}
 	}
+}
 
 
