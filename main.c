@@ -18,6 +18,9 @@
 
 #define Usuario "admin1"
 #define Clave "1234"
+#define Email "socio1@gmail.com"
+#define DNI "11111111A"
+#define Contrasenya "123456789"
 #define Longitud 80
 #define MAX_LINE 10
 
@@ -60,35 +63,94 @@ char menuAdministrador(){ ///cambiar por los valores que queramos introducir
 }
 
 char menuSocio(){ ///cambiar por los valores que queramos introducir
-		printf("\n1. Iniciar sesion como administrador\n");
-		printf("2. Iniciar sesion como socio\n");
-		printf("3. Iniciar sesion como trabajador\n");
-		printf("4. Registrarse como nuevo socio\n");
-		printf("5. Salir\n");
-		printf("\n");
-		printf("Opcion? ->  ");
-		fflush(stdout);
-		char linea[MAX_LINE];
-		fgets(linea, MAX_LINE, stdin);
-		clearIfNeeded(linea, MAX_LINE);
-		return *linea;
+		char email[Longitud];
+		char contrasenya[Longitud];
+		int intento= 0;
+		int ingresa= 0;
+
+		do {
+			system("cls");
+			printf("\n\t\t\t INICIA SESION COMO SOCIO\n");
+			printf("\n\t Email: ");
+			fflush(stdout);
+
+			fgets(email, Longitud, stdin);
+			clearIfNeeded(email, Longitud);
+			email[strcspn(email, "\r\n")] = 0;
+
+			printf("\t Contraseña: ");
+			fflush(stdout);
+			fgets(contrasenya, Longitud, stdin);
+			clearIfNeeded(contrasenya, Longitud);
+			contrasenya[strcspn(contrasenya, "\r\n")] = 0;
+
+
+			if (strcmp(email,Email)==0 && strcmp(contrasenya,Contrasenya)==0) {
+				ingresa=1;
+
+			}else {
+				printf("\n\t Email y/o Contraseña son incorrectos\n");
+				intento++;
+				getchar();
+
+			}
+		} while (intento<3 && ingresa==0);
+
+		if (ingresa==1) {
+			printf("\n\t Bienvenido al sistema\n");
+
+			//Ir a la ventana correspondiente
+		}else{
+			printf("\n\t Has sobrepasado el numero maximo de intentos\n");
+		}
+
 }
 
 char menuTrabajador(){ ///cambiar por los valores que queramos introducir
-		printf("\n1. Iniciar sesion como administrador\n");
-		printf("2. Iniciar sesion como socio\n");
-		printf("3. Iniciar sesion como trabajador\n");
-		printf("4. Registrarse como nuevo socio\n");
-		printf("5. Salir\n");
-		printf("\n");
-		printf("Opcion? ->  ");
-		fflush(stdout);
-		char linea[MAX_LINE];
-		fgets(linea, MAX_LINE, stdin);
-		clearIfNeeded(linea, MAX_LINE);
-		return *linea;
-}
+		char dni[Longitud];
+		char contrasenya[Longitud];
+		int intento= 0;
+		int ingresa= 0;
 
+		do {
+			system("cls");
+			printf("\n\t\t\t INICIA SESION COMO TRABAJADOR\n");
+			printf("\n\t DNI: ");
+			fflush(stdout);
+
+			fgets(dni, Longitud, stdin);
+			clearIfNeeded(dni, Longitud);
+			dni[strcspn(dni, "\r\n")] = 0;
+
+			printf("\t Contraseña: ");
+			fflush(stdout);
+			fgets(contrasenya, Longitud, stdin);
+			clearIfNeeded(contrasenya, Longitud);
+			contrasenya[strcspn(contrasenya, "\r\n")] = 0;
+
+
+			if (strcmp(dni,DNI)==0 && strcmp(contrasenya,Contrasenya)==0) {
+				ingresa=1;
+
+			}else {
+				printf("\n\t Email y/o Contraseña son incorrectos\n");
+				intento++;
+				getchar();
+				}
+		} while (intento<3 && ingresa==0);
+
+		if (ingresa==1) {
+			printf("\n\t Bienvenido al sistema\n");
+
+				//Ir a la ventana correspondiente
+		}else{
+			printf("\n\t Has sobrepasado el numero maximo de intentos\n");
+		}
+
+}
+char registrarSocio(){
+
+}
 void logIn(){
 	char usuario[Longitud];
 	char clave[Longitud];
@@ -164,12 +226,15 @@ int main(void){
 					break;
 
 			case '2':
+					menuSocio();
 					break;
 
 			case '3':
+					menuTrabajador();
 					break;
 
 			case '4':
+					registrarSocio();
 					break;
 
 			case '5':
