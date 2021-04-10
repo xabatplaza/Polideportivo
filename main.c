@@ -34,13 +34,15 @@ void clearIfNeeded(char *str, int max_line){
 
 
 char menu(){
-		printf("\n1. Iniciar sesion como administrador\n");
-		printf("2. Iniciar sesion como socio\n");
-		printf("3. Iniciar sesion como trabajador\n");
+		printf("\n\t\t %cBIENVENIDO AL POLIDEPORTIVO DE TUS SUE%cOS!",173,165);
+		printf("\n\t\t  -----------------------------------------\n");
+		printf("\n1. Iniciar sesi%cn como administrador\n", 162);
+		printf("2. Iniciar sesi%cn como socio\n",162);
+		printf("3. Iniciar sesi%cn como trabajador\n",162);
 		printf("4. Registrarse como nuevo socio\n");
 		printf("5. Salir\n");
 		printf("\n");
-		printf("Opcion? ->  ");
+		printf("\t%cQu%c opci%cn desea? ->  ",168, 130, 162);
 		fflush(stdout);
 		char linea[MAX_LINE];
 		fgets(linea, MAX_LINE, stdin);
@@ -76,7 +78,7 @@ char menuAdministrador(){ ///cambiar por los valores que queramos introducir
 		printf("8. Ver lista de torneos/actividad/socios/instructores\n");
 		printf("9. Salir\n");
 		printf("\n");
-		printf("Opcion? ->  ");
+		printf("\t%cQu%c opci%cn desea? ->  ",168, 130, 162);
 
 		fflush(stdout);
 		char linea[MAX_LINE];
@@ -92,7 +94,7 @@ char menuSocio(){ ///cambiar por los valores que queramos introducir
 	printf("4. Enviar queja\n");
 	printf("5. Salir\n");
 	printf("\n");
-	printf("Opcion? ->  ");
+	printf("\t%cQu%c opci%cn desea? ->  ",168, 130, 162);
 
 	fflush(stdout);
 	char linea[MAX_LINE];
@@ -111,7 +113,7 @@ char menuTrabajador(){ ///cambiar por los valores que queramos introducir
 	printf("5.Ver lista de torneos/actividades\n");
 	printf("6. Salir\n");
 	printf("\n");
-	printf("Opcion ->  ");
+	printf("\t%cQu%c opci%cn desea? ->  ",168, 130, 162);
 
 	fflush(stdout);
 	char linea[MAX_LINE];
@@ -135,7 +137,7 @@ void logIn(){
 		do {
 			i=0;
 			system("cls");
-			printf("\n\t\t\t INICIAR SESION EN EL POLIDEPORTIVO\n");
+			printf("\n\t\t\t INICIAR SESI%cN EN EL POLIDEPORTIVO\n", 224);
 			printf("\t\t\t **********************************\n");
 			printf("\n\t USUARIO: ");
 			fflush(stdout);
@@ -144,7 +146,7 @@ void logIn(){
 			clearIfNeeded(usuario, Longitud);
 			usuario[strcspn(usuario, "\r\n")] = 0;
 
-			printf("\t CONTRASEÑA: ");
+			printf("\t CONTRASE%cA: ", 165);
 			fflush(stdout);
 			//fgets(clave, Longitud, stdin);
 
@@ -168,7 +170,7 @@ void logIn(){
 
 			clearIfNeeded(clave, Longitud);
 			clave[strcspn(clave, "\r\n")] = 0;
-
+			printf("\n");
 
 			if (strcmp(usuario,Usuario)==0 && strcmp(clave,Clave)==0) {
 				ingresaAdministrador=1;
@@ -189,7 +191,8 @@ void logIn(){
 		} while (intento<3 && ingresaAdministrador==0 && ingresaSocio==0 && ingresaTrabajador==0);
 
 		if (ingresaAdministrador==1) {
-			printf("\n\t ¡Bienvenido al sistema como administrador!\n");
+			system("cls");
+			printf("\n\t %cBienvenido al sistema como administrador!\n", 173);
 
 			switch (menuAdministrador()){
 					case '1':
@@ -217,13 +220,15 @@ void logIn(){
 
 							break;
 					case '9':
+							system("cls");
 							main();
 							break;
 
 				        	}
 
 	    }else if(ingresaSocio==1){
-	        printf("\n\t ¡Bienvenido al sistema como socio!\n");
+	    	system("cls");
+	        printf("\n\t %cBienvenido al sistema como socio!\n", 173);
 
 	        	switch (menuSocio()){
 	        		case '1':
@@ -239,13 +244,15 @@ void logIn(){
 
 	        				break;
 	        		case '5':
+	        				system("cls");
 	        				main();
 	        				break;
 
 	        	}
 
 	    }else if(ingresaTrabajador==1){
-	        printf("\n\t ¡Bienvenido al sistema como trabajador!\n");
+	    	system("cls");
+	        printf("\n\t %cBienvenido al sistema como trabajador!\n",173);
 
 	        switch (menuTrabajador()){
 	        		case '1':
@@ -264,13 +271,15 @@ void logIn(){
 
 	        				break;
 	        		case'6':
+	        				system("cls");
 	        				main();
 	        				break;
 	        	}
 
 
 		}else{
-			printf("\n\t Has sobrepasado el numero maximo de intentos\n");
+			printf("\n\t Has sobrepasado el n%cmero m%cximo de intentos\n", 163, 160);
+
 		}
 }
 
@@ -298,6 +307,8 @@ int main(void){
 					break;
 
 			case '5':
+					system("cls");
+					printf("\n%cVUELVA PRONTO!\n", 173);
 					break;
 	}
 }
