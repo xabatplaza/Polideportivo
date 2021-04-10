@@ -9,36 +9,6 @@ void clearIfNeeded(char *str, int max_line){
 		while (getchar() != '\n');
 }
 
-char dni;
-
-void escribirFichero(){
-	FILE * archivo = fopen("socios.txt","a");
-	if (archivo == NULL){
-		perror("Error al crear el archivo");
-	}else{
-		printf("Creando archivo");
-		fputc(dni,archivo);
-	}
-}
-char opcion(){
-	printf("Continuar(S/N)? ->  ");
-	fflush(stdout);
-	char linea[MAX_LINE];
-	fgets(linea, MAX_LINE, stdin);
-	clearIfNeeded(linea, MAX_LINE);
-	return *linea;
-
-	char eleccion;
-	eleccion= opcion();
-	if(eleccion == 'S'){
-		printf("Entrando en escribir fichero");
-		escribirFichero();
-	}else{
-		printf("Error al entrar a escribir fichero");
-	}
-
-}
-
 int main(void){
 	char str[MAX_LINE];
 	char nombre;

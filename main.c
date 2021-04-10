@@ -23,7 +23,7 @@
 #define Contrasenya "123456789"
 #define Longitud 80
 #define MAX_LINE 10
-
+#define MAX_LINE_INT 2
 
 
 void clearIfNeeded(char *str, int max_line){
@@ -32,6 +32,677 @@ void clearIfNeeded(char *str, int max_line){
 		while (getchar() != '\n');
 }
 
+void actividad(){
+	char str[MAX_LINE];
+	char eleccion;
+	int i = 1;
+	while(i==1){
+		printf("\n1. Crear Actividad\n");
+		printf("2. Atras\n");
+		printf("\n");
+		printf("Opcion? ->  ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &eleccion);
+		if (eleccion == '1'){
+			char str[MAX_LINE];
+			char integer[MAX_LINE_INT];
+			char nombreActividad;
+			char cantidadSocios;
+			char descripcion;
+			char opcion;
+			FILE * archivo = fopen("actividades.txt","a");
+			if (archivo == NULL){
+				perror("Error al crear el archivo");
+				exit(1);
+			}else{
+				printf("Creando archivo\n");
+				printf("Nombre de la Actividad: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &nombreActividad);
+				fprintf(archivo,"Nombre de la actividad: %s ",&nombreActividad);
+				clearIfNeeded(str, MAX_LINE);
+
+				printf("Numero de socios que se pueden apuntar: ");
+				fflush(stdout);
+				fgets(integer, MAX_LINE_INT, stdin);
+				sscanf(integer, "%i", &cantidadSocios);
+				fprintf(archivo,"Numero de socios: %i ",&cantidadSocios);
+				clearIfNeeded(integer, MAX_LINE_INT);
+
+				printf("Descripcion: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &descripcion);
+				fprintf(archivo,"Descripcion: %s\n",&descripcion);
+				clearIfNeeded(str, MAX_LINE);
+
+
+				fclose(archivo);
+			}
+		}else {
+			system("cls");
+			i++;
+
+
+		}
+	}
+
+
+}
+void instructor(){
+	char str[MAX_LINE];
+	char eleccion;
+	int i = 1;
+	while(i==1){
+		printf("\n1. Crear Instructor\n");
+		printf("2. Atras\n");
+		printf("\n");
+		printf("Opcion? ->  ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &eleccion);
+		if (eleccion == '1'){
+			char str[MAX_LINE];
+			char nombre;
+			char dir;
+			char email;
+			char dni;
+			char contrasenya;
+			char cuenta;
+			char opcion;
+			FILE * archivo = fopen("instructores.txt","a");
+			if (archivo == NULL){
+				perror("Error al crear el archivo");
+				exit(1);
+			}else{
+				printf("Nombre: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &nombre);
+				fprintf(archivo,"Nombre: %s ",&nombre);
+				clearIfNeeded(str, MAX_LINE);
+
+				printf("DNI: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &dni);
+				fprintf(archivo,"DNI: %s ",&dni);
+				clearIfNeeded(str, MAX_LINE);
+
+				printf("Email: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &email);
+				fprintf(archivo,"Email: %s ",&email);
+				clearIfNeeded(str, MAX_LINE);
+
+				printf("Contraseña: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &contrasenya);
+				fprintf(archivo,"Contraseña: %s ",&contrasenya);
+				clearIfNeeded(str, MAX_LINE);
+
+				printf("Direccion: ");
+				fflush(stdout);
+				fgets(str,MAX_LINE, stdin);
+				sscanf(str, "%s", &dir);
+				fprintf(archivo, "Direccion: %s",&dir);
+				clearIfNeeded(str,MAX_LINE);
+
+
+				printf("Cuenta Bancaria: ISBN ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &cuenta);
+				fprintf(archivo,"Cuenta Bancaria: %s\n",&cuenta);
+
+				fclose(archivo);
+			}
+		}else if (eleccion == '2'){
+			system("cls");
+			i++;
+		}else{
+			printf("Error");
+		}
+	}
+
+
+
+
+}
+void socio(){
+	char str[MAX_LINE];
+	char eleccion;
+	int i = 1;
+	while(i==1){
+		printf("\n1. Crear Socio\n");
+		printf("2. Atras\n");
+		printf("\n");
+		printf("Opcion? ->  ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &eleccion);
+		if (eleccion == '1'){
+			char str[MAX_LINE];
+			char nombre;
+			char apellidos;
+			char email;
+			char dni;
+			char contrasenya;
+			char cuenta;
+			char opcion;
+			FILE * archivo = fopen("socios.txt","a");
+			if (archivo == NULL){
+				perror("Error al crear el archivo");
+				exit(1);
+			}else{
+				printf("Creando archivo\n");
+				printf("Nombre: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &nombre);
+				fprintf(archivo,"Nombre: %s ",&nombre);
+				clearIfNeeded(str, MAX_LINE);
+
+				printf("Apellidos: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &apellidos);
+				fprintf(archivo,"Apellido: %s ",&apellidos);
+				clearIfNeeded(str, MAX_LINE);
+
+				printf("DNI: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &dni);
+				fprintf(archivo,"DNI: %s ",&dni);
+				clearIfNeeded(str, MAX_LINE);
+
+				printf("Email: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &email);
+				fprintf(archivo,"Email: %s ",&email);
+				clearIfNeeded(str, MAX_LINE);
+
+				printf("Contraseña: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &contrasenya);
+				fprintf(archivo,"Contraseña: %s ",&contrasenya);
+				clearIfNeeded(str, MAX_LINE);
+
+
+				printf("Cuenta Bancaria: ISBN ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &cuenta);
+				fprintf(archivo,"Cuenta Bancaria: %s\n",&cuenta);
+
+				fclose(archivo);
+			}
+		}else if(eleccion=='2'){
+			system("cls");
+			i++;
+		}else{
+			printf("Error");
+		}
+
+	}
+
+
+}
+void torneo(){
+	char str[MAX_LINE];
+	char eleccion;
+	int i = 1;
+	while(i==1){
+		printf("\n1. Crear Torneo\n");
+		printf("2. Atras\n");
+		printf("\n");
+		printf("Opcion? ->  ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &eleccion);
+		if (eleccion == '1'){
+			char str[MAX_LINE];
+			char nombre;
+			char integer[MAX_LINE];
+			int participantes;
+			char direccion;
+			char fecha;
+
+			char opcion;
+			FILE * archivo = fopen("torneos.txt","a");
+			if (archivo == NULL){
+				perror("Error al crear el archivo");
+				exit(1);
+			}else{
+				printf("Nombre del torneo: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &nombre);
+				fprintf(archivo,"Nombre_Torneo: %s ",&nombre);
+				clearIfNeeded(str, MAX_LINE);
+
+				printf("Participantes: ");
+				fflush(stdout);
+				fgets(integer, MAX_LINE, stdin);
+				sscanf(integer, "%i", &participantes);
+				fprintf(archivo,"Participantes: %i ",&participantes);
+				clearIfNeeded(integer, MAX_LINE);
+
+				printf("Direccion: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &direccion);
+				fprintf(archivo,"DNI: %s ",&direccion);
+				clearIfNeeded(str, MAX_LINE);
+
+				printf("Fecha: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &fecha);
+				fprintf(archivo,"Email: %s \n",&fecha);
+				clearIfNeeded(str, MAX_LINE);
+
+				fclose(archivo);
+			}
+		}else if(eleccion=='2'){
+			system("cls");
+			i++;
+		}else{
+			printf("Error");
+		}
+
+	}
+
+
+}
+void trabajador(){
+	char str[MAX_LINE];
+	char eleccion;
+	int i = 1;
+	while(i==1){
+		printf("\n1. Crear Trabajador\n");
+		printf("2. Atras\n");
+		printf("\n");
+		printf("Opcion? ->  ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &eleccion);
+		if (eleccion == '1'){
+			char str[MAX_LINE];
+			char email;
+			char dni;
+			char contrasenya;
+			char cuenta;
+			char opcion;
+			FILE * archivo = fopen("trabajadores.txt","a");
+			if (archivo == NULL){
+				perror("Error al crear el archivo");
+				exit(1);
+			}else{
+				printf("DNI: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &dni);
+				fprintf(archivo,"DNI: %s ",&dni);
+				clearIfNeeded(str, MAX_LINE);
+
+				printf("Email: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &email);
+				fprintf(archivo,"Email: %s ",&email);
+				clearIfNeeded(str, MAX_LINE);
+
+				printf("Contraseña: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &contrasenya);
+				fprintf(archivo,"Contraseña: %s ",&contrasenya);
+				clearIfNeeded(str, MAX_LINE);
+
+
+				printf("¿A que cuenta se transfiere el dinero?: ISBN ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &cuenta);
+				fprintf(archivo,"Cuenta Bancaria: %s\n",&cuenta);
+
+				fclose(archivo);
+			}
+		}else if(eleccion=='2'){
+			system("cls");
+			i++;
+		}else{
+			printf("Error");
+		}
+
+	}
+
+
+}
+void trabajadorInstructor(){
+	char str[MAX_LINE];
+	char eleccion;
+	int i = 1;
+	while(i==1){
+		printf("\n1. Crear Trabajador\n");
+		printf("2. Crear Instructor\n");
+		printf("3. Atras\n");
+		printf("\n");
+		printf("Opcion? ->  ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &eleccion);
+		if (eleccion == '1'){
+			char str[MAX_LINE];
+			char email;
+			char dni;
+			char contrasenya;
+			char cuenta;
+			char opcion;
+			FILE * archivo = fopen("trabajadores.txt","a");
+			if (archivo == NULL){
+				perror("Error al crear el archivo");
+				exit(1);
+			}else{
+				printf("DNI: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &dni);
+				fprintf(archivo,"DNI: %s ",&dni);
+				clearIfNeeded(str, MAX_LINE);
+
+				printf("Email: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &email);
+				fprintf(archivo,"Email: %s ",&email);
+				clearIfNeeded(str, MAX_LINE);
+
+				printf("Contraseña: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &contrasenya);
+				fprintf(archivo,"Contraseña: %s ",&contrasenya);
+				clearIfNeeded(str, MAX_LINE);
+
+
+				printf("¿A que cuenta se transfiere el dinero?: ISBN ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &cuenta);
+				fprintf(archivo,"Cuenta Bancaria: %s\n",&cuenta);
+
+				fclose(archivo);
+			}
+
+		}else if (eleccion == '2'){
+			char str[MAX_LINE];
+			char nombre;
+			char dir;
+			char email;
+			char dni;
+			char contrasenya;
+			char cuenta;
+			char opcion;
+			FILE * archivo = fopen("instructores.txt","a");
+			if (archivo == NULL){
+				perror("Error al crear el archivo");
+				exit(1);
+			}else{
+				printf("Nombre: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &nombre);
+				fprintf(archivo,"Nombre: %s ",&nombre);
+				clearIfNeeded(str, MAX_LINE);
+
+				printf("DNI: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &dni);
+				fprintf(archivo,"DNI: %s ",&dni);
+				clearIfNeeded(str, MAX_LINE);
+
+				printf("Email: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &email);
+				fprintf(archivo,"Email: %s ",&email);
+				clearIfNeeded(str, MAX_LINE);
+
+				printf("Contraseña: ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &contrasenya);
+				fprintf(archivo,"Contraseña: %s ",&contrasenya);
+				clearIfNeeded(str, MAX_LINE);
+
+				printf("Direccion: ");
+				fflush(stdout);
+				fgets(str,MAX_LINE, stdin);
+				sscanf(str, "%s", &dir);
+				fprintf(archivo, "Direccion: %s",&dir);
+				clearIfNeeded(str,MAX_LINE);
+
+
+				printf("Cuenta Bancaria: ISBN ");
+				fflush(stdout);
+				fgets(str, MAX_LINE, stdin);
+				sscanf(str, "%s", &cuenta);
+				fprintf(archivo,"Cuenta Bancaria: %s\n",&cuenta);
+
+				fclose(archivo);
+			}
+
+
+		}else if(eleccion=='3'){
+			system("cls");
+			i++;
+		}else{
+			printf("Error");
+		}
+
+	}
+
+
+}
+void listarTodo(){
+	char str[MAX_LINE];
+	char eleccion;
+	int i = 1;
+	while(i==1){
+		printf("\n1. Listar Instructores\n");
+		printf("2. Listar Torneos\n");
+		printf("3. Listar Trabajadores\n");
+		printf("4. Listar Socios\n");
+		printf("5. Listar Actividades\n");
+		printf("6. Atras\n");
+		printf("\n");
+		printf("Opcion? ->  ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &eleccion);
+		if (eleccion == '1'){
+			char aux;
+			FILE * fichero;
+
+			fichero = fopen("instructores.txt","r");
+			if(fichero == NULL){
+				printf("No se ha podido abrir el fichero. \n");
+				exit(1);
+			}
+			while(aux != EOF){
+				aux = fgetc(fichero);
+				printf("%c",aux);
+			}
+			printf("\n");
+
+			fclose(fichero);
+
+			system("pause");
+		}else if (eleccion == '2'){
+			char aux;
+			FILE * fichero;
+
+			fichero = fopen("torneos.txt","r");
+			if(fichero == NULL){
+				printf("No se ha podido abrir el fichero. \n");
+				exit(1);
+			}
+			while(aux != EOF){
+				aux = fgetc(fichero);
+				printf("%c",aux);
+			}
+			printf("\n");
+
+			fclose(fichero);
+
+			system("pause");
+		}else if(eleccion == '3'){
+			char aux;
+			FILE * fichero;
+
+			fichero = fopen("trabajadores.txt","r");
+			if(fichero == NULL){
+				printf("No se ha podido abrir el fichero. \n");
+				exit(1);
+			}
+			while(aux != EOF){
+				aux = fgetc(fichero);
+				printf("%c",aux);
+			}
+			printf("\n");
+			printf("\n");
+			printf("\n");
+
+			fclose(fichero);
+
+			system("pause");
+		}else if (eleccion == '4'){
+			char aux;
+			FILE * fichero;
+
+			fichero = fopen("socios.txt","r");
+			if(fichero == NULL){
+				printf("No se ha podido abrir el fichero. \n");
+				exit(1);
+			}
+			while(aux != EOF){
+				aux = fgetc(fichero);
+				printf("%c",aux);
+			}
+			printf("\n");
+			printf("\n");
+			printf("\n");
+
+			fclose(fichero);
+
+			system("pause");
+		}else if (eleccion == '5'){
+			char aux;
+			FILE * fichero;
+
+			fichero = fopen("actividades.txt","r");
+			if(fichero == NULL){
+				printf("No se ha podido abrir el fichero. \n");
+				exit(1);
+			}
+			while(aux != EOF){
+				aux = fgetc(fichero);
+				printf("%c",aux);
+			}
+			printf("\n");
+			printf("\n");
+			printf("\n");
+
+			fclose(fichero);
+
+			system("pause");
+		}else if(eleccion=='6'){
+			system("cls");
+			i++;
+		}else{
+			printf("Error");
+		}
+
+	}
+
+
+}
+void listaTorneoActividad(){
+	char str[MAX_LINE];
+	char eleccion;
+	int i = 1;
+	while(i==1){
+		printf("\n1. Listar torneos\n");
+		printf("2. Listar actividades\n");
+		printf("3. Atras\n");
+		printf("\n");
+		printf("Opcion? ->  ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &eleccion);
+		if (eleccion == '1'){
+			char aux;
+			FILE * fichero;
+
+			fichero = fopen("torneos.txt","r");
+			if(fichero == NULL){
+				printf("No se ha podido abrir el fichero. \n");
+				exit(1);
+			}
+			while(aux != EOF){
+				aux = fgetc(fichero);
+				printf("%c",aux);
+			}
+			printf("\n");
+			printf("\n");
+			printf("\n");
+
+			fclose(fichero);
+
+			system("pause");
+		}else if (eleccion == '2'){
+			char aux;
+			FILE * fichero;
+
+			fichero = fopen("actividades.txt","r");
+			if(fichero == NULL){
+				printf("No se ha podido abrir el fichero. \n");
+				exit(1);
+			}
+			while(aux != EOF){
+				aux = fgetc(fichero);
+				printf("%c",aux);
+			}
+			printf("\n");
+			printf("\n");
+			printf("\n");
+
+			fclose(fichero);
+
+			system("pause");
+
+
+		}else if(eleccion=='3'){
+			system("cls");
+			i++;
+		}else{
+			printf("Error");
+		}
+
+	}
+
+
+}
 
 char menu(){
 		printf("\n\t\t %cBIENVENIDO AL POLIDEPORTIVO DE TUS SUE%cOS!",173,165);
@@ -52,18 +723,64 @@ char menu(){
 
 
 char registrarSocio(){ //cambiar
-	printf("\n1. Iniciar sesion como administrador\n");
-	printf("2. Iniciar sesion como socio\n");
-	printf("3. Iniciar sesion como trabajador\n");
-	printf("4. Registrarse como nuevo socio\n");
-	printf("5. Salir\n");
-	printf("\n");
-	printf("Opcion? ->  ");
-	fflush(stdout);
-	char linea[MAX_LINE];
-	fgets(linea, MAX_LINE, stdin);
-	clearIfNeeded(linea, MAX_LINE);
-	return *linea;
+	char str[MAX_LINE];
+	char nombre;
+	char apellidos;
+	char email;
+	char dni;
+	char contrasenya;
+	char cuenta;
+	char opcion;
+	FILE * archivo = fopen("socios.txt","a");
+	if (archivo == NULL){
+		perror("Error al crear el archivo");
+		exit(1);
+	}else{
+		printf("Creando archivo\n");
+		printf("Nombre: ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &nombre);
+		fprintf(archivo,"Nombre: %s ",&nombre);
+		clearIfNeeded(str, MAX_LINE);
+
+		printf("Apellidos: ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &apellidos);
+		fprintf(archivo,"Apellido: %s ",&apellidos);
+		clearIfNeeded(str, MAX_LINE);
+
+		printf("DNI: ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &dni);
+		fprintf(archivo,"DNI: %s ",&dni);
+		clearIfNeeded(str, MAX_LINE);
+
+		printf("Email: ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &email);
+		fprintf(archivo,"Email: %s ",&email);
+		clearIfNeeded(str, MAX_LINE);
+
+		printf("Contraseña: ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &contrasenya);
+		fprintf(archivo,"Contraseña: %s ",&contrasenya);
+		clearIfNeeded(str, MAX_LINE);
+
+
+		printf("Cuenta Bancaria: ISBN ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &cuenta);
+		fprintf(archivo,"Cuenta Bancaria: %s\n",&cuenta);
+
+		fclose(archivo);
+	}
 }
 
 
@@ -193,43 +910,51 @@ void logIn(){
 		if (ingresaAdministrador==1) {
 			system("cls");
 			printf("\n\t %cBienvenido al sistema como administrador!\n", 173);
+			while(1){
+				switch (menuAdministrador()){
+						case '1':
+								socio();
+								break;
+						case '2':
+								trabajadorInstructor();
+								break;
 
-			switch (menuAdministrador()){
-					case '1':
+						case '3':
+								torneo();
+								break;
 
-							break;
-					case '2':
+						case '4':
 
-							break;
-					case '3':
+								break;
+						case '5':
 
-							break;
-					case '4':
+								break;
+						case '6':
 
-							break;
-					case '5':
+								break;
+						case '7':
+								actividad();
+								break;
 
-							break;
-					case '6':
+						case '8':
+								listarTodo();
+								break;
 
-							break;
-					case '7':
+						case '9':
+								system("cls");
+								main();
+								break;
+								exit(0);
 
-							break;
-					case '8':
 
-							break;
-					case '9':
-							system("cls");
-							main();
-							break;
+					}
 
-				        	}
+				}
 
 	    }else if(ingresaSocio==1){
 	    	system("cls");
 	        printf("\n\t %cBienvenido al sistema como socio!\n", 173);
-
+	        while(1){
 	        	switch (menuSocio()){
 	        		case '1':
 
@@ -238,7 +963,7 @@ void logIn(){
 
 	        				break;
 	        		case '3':
-
+	        				listaTorneoActividad();
 	        				break;
 	        		case '4':
 
@@ -247,40 +972,51 @@ void logIn(){
 	        				system("cls");
 	        				main();
 	        				break;
+	        				exit(0);
+
 
 	        	}
+	        }
+
 
 	    }else if(ingresaTrabajador==1){
 	    	system("cls");
 	        printf("\n\t %cBienvenido al sistema como trabajador!\n",173);
+	        while(1){
+		        switch (menuTrabajador()){
+		        		case '1':
+		        				socio();
+		        				break;
 
-	        switch (menuTrabajador()){
-	        		case '1':
+		        		case '2':
 
-	        				break;
-	        		case '2':
+		        				break;
+		        		case '3':
 
-	        				break;
-	        		case '3':
+		        				break;
+		        		case '4':
 
-	        				break;
-	        		case '4':
+		        				break;
+		        		case '5':
+		        				listaTorneoActividad();
+		        				break;
 
-	        				break;
-	        		case '5':
+		        		case'6':
+	        					system("cls");
+		        				main();
+		        				break;
+		        				exit(0);
 
-	        				break;
-	        		case'6':
-	        				system("cls");
-	        				main();
-	        				break;
-	        	}
+		        	}
+	        }
+
 
 
 		}else{
 			printf("\n\t Has sobrepasado el n%cmero m%cximo de intentos\n", 163, 160);
 
 		}
+
 }
 
 
@@ -304,7 +1040,7 @@ int main(void){
 
 			case '4':
 					registrarSocio();
-					break;
+
 
 			case '5':
 					system("cls");

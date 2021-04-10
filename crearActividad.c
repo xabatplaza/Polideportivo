@@ -41,7 +41,7 @@ int main(void){
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
 		sscanf(str, "%s", &descripcion);
-		fprintf(archivo,"Descripcion: %s",&descripcion);
+		fprintf(archivo,"Descripcion: %s\n",&descripcion);
 		clearIfNeeded(str, MAX_LINE);
 
 

@@ -6,7 +6,7 @@ int main(void){
 	char aux;
 	FILE * fichero;
 
-	fichero = fopen("socios.txt","r");
+	fichero = fopen("trabajadores.txt","r");
 	if(fichero == NULL){
 		printf("No se ha podido abrir el fichero. \n");
 		exit(1);
@@ -15,7 +15,6 @@ int main(void){
 		aux = fgetc(fichero);
 		printf("%c",aux);
 	}
-	printf("\n");
 	printf("\n");
 
 	fclose(fichero);

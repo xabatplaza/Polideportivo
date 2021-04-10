@@ -1,6 +1,7 @@
 #include "crearInstructor.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #define MAX_LINE 150
 #define MAX_LINE_INT 2
 
@@ -11,40 +12,10 @@ void clearIfNeeded(char *str, int max_line){
 		while (getchar() != '\n');
 }
 
-char dni;
-
-void escribirFichero(){
-	FILE * archivo = fopen("instructores.txt","a");
-	if (archivo == NULL){
-		perror("Error al crear el archivo");
-	}else{
-		printf("Creando archivo");
-		fputc(dni,archivo);
-	}
-}
-char opcion(){
-	printf("Continuar(S/N)? ->  ");
-	fflush(stdout);
-	char linea[MAX_LINE];
-	fgets(linea, MAX_LINE, stdin);
-	clearIfNeeded(linea, MAX_LINE);
-	return *linea;
-
-	char eleccion;
-	eleccion= opcion();
-	if(eleccion == 'S'){
-		printf("Entrando en escribir fichero");
-		escribirFichero();
-	}else{
-		printf("Error al entrar a escribir fichero");
-	}
-
-}
-
 int main(void){
 	char str[MAX_LINE];
 	char nombre;
-	char apellidos;
+	char dir;
 	char email;
 	char dni;
 	char contrasenya;
@@ -55,19 +26,11 @@ int main(void){
 		perror("Error al crear el archivo");
 		exit(1);
 	}else{
-		printf("Creando archivo\n");
 		printf("Nombre: ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
 		sscanf(str, "%s", &nombre);
 		fprintf(archivo,"Nombre: %s ",&nombre);
-		clearIfNeeded(str, MAX_LINE);
-
-		printf("Apellidos: ");
-		fflush(stdout);
-		fgets(str, MAX_LINE, stdin);
-		sscanf(str, "%s", &apellidos);
-		fprintf(archivo,"Apellido: %s ",&apellidos);
 		clearIfNeeded(str, MAX_LINE);
 
 		printf("DNI: ");
@@ -90,6 +53,13 @@ int main(void){
 		sscanf(str, "%s", &contrasenya);
 		fprintf(archivo,"Contraseña: %s ",&contrasenya);
 		clearIfNeeded(str, MAX_LINE);
+
+		printf("Direccion: ");
+		fflush(stdout);
+		fgets(str,MAX_LINE, stdin);
+		sscanf(str, "%s", &dir);
+		fprintf(archivo, "Direccion: %s",&dir);
+		clearIfNeeded(str,MAX_LINE);
 
 
 		printf("Cuenta Bancaria: ISBN ");
