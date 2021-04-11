@@ -22,8 +22,8 @@
 #define DNI "11111111A"			 //Usuario para iniciar sesion como trabajador
 #define Contrasenya "123456789"  //Contraseña para iniciar sesion como socio y trabajador
 #define Longitud 80
-#define MAX_LINE 10
-#define MAX_LINE_INT 2
+#define MAX_LINE 50
+#define MAX_LINE_INT 4
 
 typedef struct{
 	char nombre;
@@ -779,7 +779,7 @@ char registrarSocio(){ //Registrar socio, en C++ haremos que una vez registrado,
 		fprintf(archivo,"Email: %s ",&email);
 		clearIfNeeded(str, MAX_LINE);
 
-		printf("Contraseña: ");
+		printf("Contrase%ca: ",164);
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
 		sscanf(str, "%s", &contrasenya);
