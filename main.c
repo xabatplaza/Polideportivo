@@ -1,15 +1,3 @@
-#include "administrador.h"
-#include "crearActividad.h"
-#include "crearInstructor.h"
-#include "crearSocio.h"
-#include "crearTorneo.h"
-#include "crearTrabajador.h"
-#include "sesionAdministrador.h"
-#include "sesionSocio.h"
-#include "sesionTrabajador.h"
-#include "socio.h"
-#include "trabajador.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -56,7 +44,7 @@ void actividad(){		//Crear actividades
 			char str[MAX_LINE];
 			char integer[MAX_LINE_INT];
 			char nombreActividad;
-			char cantidadSocios;
+			int cantidadSocios;
 			char descripcion;
 			char opcion;
 			FILE * archivo = fopen("actividades.txt","a");
@@ -562,6 +550,7 @@ void listarTodo(){		//Funcion para que se elija que listar y listarlo por pantal
 			fclose(fichero);
 
 			system("pause");
+			system("cls");
 		}else if (eleccion == '2'){
 			char aux;
 			FILE * fichero;
@@ -580,6 +569,7 @@ void listarTodo(){		//Funcion para que se elija que listar y listarlo por pantal
 			fclose(fichero);
 
 			system("pause");
+			system("cls");
 		}else if(eleccion == '3'){
 			char aux;
 			FILE * fichero;
@@ -600,6 +590,7 @@ void listarTodo(){		//Funcion para que se elija que listar y listarlo por pantal
 			fclose(fichero);
 
 			system("pause");
+			system("cls");
 		}else if (eleccion == '4'){
 			char aux;
 			FILE * fichero;
@@ -620,6 +611,7 @@ void listarTodo(){		//Funcion para que se elija que listar y listarlo por pantal
 			fclose(fichero);
 
 			system("pause");
+			system("cls");
 		}else if (eleccion == '5'){
 			char aux;
 			FILE * fichero;
@@ -640,6 +632,7 @@ void listarTodo(){		//Funcion para que se elija que listar y listarlo por pantal
 			fclose(fichero);
 
 			system("pause");
+			system("cls");
 		}else if(eleccion=='6'){
 			system("cls");
 			i++;
@@ -684,6 +677,7 @@ void listaTorneoActividad(){		//Funcion para listar torneos y actividades
 			fclose(fichero);
 
 			system("pause");
+			system("cls");
 		}else if (eleccion == '2'){
 			char aux;
 			FILE * fichero;
@@ -704,6 +698,7 @@ void listaTorneoActividad(){		//Funcion para listar torneos y actividades
 			fclose(fichero);
 
 			system("pause");
+			system("cls");
 
 
 		}else if(eleccion=='3'){
@@ -719,6 +714,7 @@ void listaTorneoActividad(){		//Funcion para listar torneos y actividades
 }
 
 char menu(){ //Menu principal de eleccion
+		system("cls");
 		printf("\n\t\t %cBIENVENIDO AL POLIDEPORTIVO DE TUS SUE%cOS!",173,165);
 		printf("\n\t\t  -----------------------------------------\n");
 		printf("\n1. Iniciar sesi%cn como administrador\n", 162);
@@ -857,28 +853,28 @@ char menuTrabajador(){ ///cambiar por los valores que queramos introducir
 
 void mostrarQuejas(){
 	  int p ;
+	  char eleccion;
+	  char str[MAX_LINE];
 	  printf("\nIndique el n%cmero total de quejas que desea realizar: ", 163);
 	  scanf("%d", &p);
 
 	  char (*palabras)[100];
 	  palabras = (char(*)[100]) malloc(p * sizeof(char[100]));
-
 	  int y = 0;
 	  while (y < p) {
-	        printf("Teclea una palabra: ");
-	        fflush(stdin);
-	        scanf("%[^\n]", palabras[y]);
-	        printf("\n");
-	        y++;
-	    }
+			printf("Teclea una palabra: ");
+			fflush(stdin);
+			scanf("%[^\n]", palabras[y]);
+			printf("\n");
+			y++;
+		}
 	   int i;
 	   for (i = 0;i < p;i++)  {
-	        printf("%s \n", palabras[i]);
-	    }
+			printf("%s \n", palabras[i]);
+		}
 	   printf("\n%cEsperamos solucionar sus problemas lo antes posible, muchas gracias!", 173);
-
-	    free(palabras);
-	    palabras= NULL;
+	   free(palabras);
+	   palabras= NULL;
 
 }
 
@@ -965,13 +961,16 @@ void logIn(){		//Funcion para loguearse como admin,socio y trabajador
 								break;
 
 						case '4':
-								printf("Implementar en C++");
+								system("cls");
+								printf("Implementar en C++\n");
 								break;
 						case '5':
-								printf("Implementar en C++");
+								system("cls");
+								printf("Implementar en C++\n");
 								break;
 						case '6':
-								printf("Implementar en C++");
+								system("cls");
+								printf("Implementar en C++\n");
 								break;
 						case '7':
 								actividad();
@@ -998,16 +997,20 @@ void logIn(){		//Funcion para loguearse como admin,socio y trabajador
 	        while(1){
 	        	switch (menuSocio()){
 	        		case '1':
-	        				printf("Implementar en C++");
+	        				system("cls");
+	        				printf("Implementar en C++\n");
 	        				break;
 	        		case '2':
-	        				printf("Implementar en C++");
+	        				system("cls");
+	        				printf("Implementar en C++\n");
 	        				break;
 	        		case '3':
 	        				listaTorneoActividad();
 	        				break;
 	        		case '4':
-	        				mostrarQuejas();
+	        				mostrarQuejas(); //socio1@gmail.com
+
+	        				exit(0);
 	        				break;
 
 	        		case '5':
@@ -1031,12 +1034,15 @@ void logIn(){		//Funcion para loguearse como admin,socio y trabajador
 		        				break;
 
 		        		case '2':
-		        				printf("Implementar en C++");
+		        				system("cls");
+		        				printf("Implementar en C++\n");
 		        				break;
 		        		case '3':
+		        				system("cls");
 		        				printf("Implementar en C++");
 		        				break;
 		        		case '4':
+		        				system("cls");
 		        				printf("Implementar en C++");
 		        				break;
 		        		case '5':
@@ -1087,7 +1093,9 @@ int main(void){
 			case '5':
 					system("cls");
 					printf("\n%cVUELVA PRONTO!\n", 173);
+					exit(0);
 					break;
+
 	}
 }
 
