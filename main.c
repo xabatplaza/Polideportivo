@@ -16,15 +16,23 @@
 
 //Se mostrará el siguiente menú en la pantalla principal
 
-#define Usuario "admin1"
-#define Clave "1234"
-#define Email "socio1@gmail.com"
-#define DNI "11111111A"
-#define Contrasenya "123456789"
+#define Usuario "admin1" //Si quieres iniciar sesion como administrador
+#define Clave "1234"     //Contraseña para iniciar como administrador
+#define Email "socio1@gmail.com" //Usuario para iniciar sesion como socio
+#define DNI "11111111A"			 //Usuario para iniciar sesion como trabajador
+#define Contrasenya "123456789"  //Contraseña para iniciar sesion como socio y trabajador
 #define Longitud 80
 #define MAX_LINE 10
 #define MAX_LINE_INT 2
 
+typedef struct{
+	char nombre;
+	char apellidos;
+	char email;
+	char dni;
+	char contrasenya;
+	char cuenta;
+}EstructuraSocio;
 
 void clearIfNeeded(char *str, int max_line){
 	// Limpia los caracteres de más introducidos
@@ -32,7 +40,7 @@ void clearIfNeeded(char *str, int max_line){
 		while (getchar() != '\n');
 }
 
-void actividad(){
+void actividad(){		//Crear actividades
 	char str[MAX_LINE];
 	char eleccion;
 	int i = 1;
@@ -91,7 +99,7 @@ void actividad(){
 
 
 }
-void instructor(){
+void instructor(){		//Crear instructores
 	char str[MAX_LINE];
 	char eleccion;
 	int i = 1;
@@ -173,10 +181,11 @@ void instructor(){
 
 
 }
-void socio(){
+void socio(){			//Crear socio
 	char str[MAX_LINE];
 	char eleccion;
 	int i = 1;
+	EstructuraSocio socioS;
 	while(i==1){
 		printf("\n1. Crear Socio\n");
 		printf("2. Atras\n");
@@ -203,44 +212,44 @@ void socio(){
 				printf("Nombre: ");
 				fflush(stdout);
 				fgets(str, MAX_LINE, stdin);
-				sscanf(str, "%s", &nombre);
-				fprintf(archivo,"Nombre: %s ",&nombre);
+				sscanf(str, "%s", &(socioS.nombre));
+				fprintf(archivo,"Nombre: %s ",&(socioS.nombre));
 				clearIfNeeded(str, MAX_LINE);
 
 				printf("Apellidos: ");
 				fflush(stdout);
 				fgets(str, MAX_LINE, stdin);
-				sscanf(str, "%s", &apellidos);
-				fprintf(archivo,"Apellido: %s ",&apellidos);
+				sscanf(str, "%s", &(socioS.apellidos));
+				fprintf(archivo,"Apellido: %s ",&(socioS.apellidos));
 				clearIfNeeded(str, MAX_LINE);
 
 				printf("DNI: ");
 				fflush(stdout);
 				fgets(str, MAX_LINE, stdin);
-				sscanf(str, "%s", &dni);
-				fprintf(archivo,"DNI: %s ",&dni);
+				sscanf(str, "%s", &(socioS.dni));
+				fprintf(archivo,"DNI: %s ",&(socioS.dni));
 				clearIfNeeded(str, MAX_LINE);
 
 				printf("Email: ");
 				fflush(stdout);
 				fgets(str, MAX_LINE, stdin);
-				sscanf(str, "%s", &email);
-				fprintf(archivo,"Email: %s ",&email);
+				sscanf(str, "%s", &(socioS.email));
+				fprintf(archivo,"Email: %s ",&(socioS.email));
 				clearIfNeeded(str, MAX_LINE);
 
 				printf("Contraseña: ");
 				fflush(stdout);
 				fgets(str, MAX_LINE, stdin);
-				sscanf(str, "%s", &contrasenya);
-				fprintf(archivo,"Contraseña: %s ",&contrasenya);
+				sscanf(str, "%s", &(socioS.contrasenya));
+				fprintf(archivo,"Contraseña: %s ",&(socioS.contrasenya));
 				clearIfNeeded(str, MAX_LINE);
 
 
 				printf("Cuenta Bancaria: ISBN ");
 				fflush(stdout);
 				fgets(str, MAX_LINE, stdin);
-				sscanf(str, "%s", &cuenta);
-				fprintf(archivo,"Cuenta Bancaria: %s\n",&cuenta);
+				sscanf(str, "%s", &(socioS.cuenta));
+				fprintf(archivo,"Cuenta Bancaria: %s\n",&(socioS.cuenta));
 
 				fclose(archivo);
 			}
@@ -255,7 +264,7 @@ void socio(){
 
 
 }
-void torneo(){
+void torneo(){			//Crear socio
 	char str[MAX_LINE];
 	char eleccion;
 	int i = 1;
@@ -322,7 +331,7 @@ void torneo(){
 
 
 }
-void trabajador(){
+void trabajador(){			//Crear trabajador
 	char str[MAX_LINE];
 	char eleccion;
 	int i = 1;
@@ -387,7 +396,7 @@ void trabajador(){
 
 
 }
-void trabajadorInstructor(){
+void trabajadorInstructor(){		//Panel de opciones para crear trabajador o instructor
 	char str[MAX_LINE];
 	char eleccion;
 	int i = 1;
@@ -514,7 +523,7 @@ void trabajadorInstructor(){
 
 
 }
-void listarTodo(){
+void listarTodo(){		//Funcion para que se elija que listar y listarlo por pantalla
 	char str[MAX_LINE];
 	char eleccion;
 	int i = 1;
@@ -637,7 +646,7 @@ void listarTodo(){
 
 
 }
-void listaTorneoActividad(){
+void listaTorneoActividad(){		//Funcion para listar torneos y actividades
 	char str[MAX_LINE];
 	char eleccion;
 	int i = 1;
@@ -704,7 +713,7 @@ void listaTorneoActividad(){
 
 }
 
-char menu(){
+char menu(){ //Menu principal de eleccion
 		printf("\n\t\t %cBIENVENIDO AL POLIDEPORTIVO DE TUS SUE%cOS!",173,165);
 		printf("\n\t\t  -----------------------------------------\n");
 		printf("\n1. Iniciar sesi%cn como administrador\n", 162);
@@ -722,7 +731,7 @@ char menu(){
 }
 
 
-char registrarSocio(){ //cambiar
+char registrarSocio(){ //Registrar socio, en C++ haremos que una vez registrado, puedas iniciar sesion con el socio creado
 	char str[MAX_LINE];
 	char nombre;
 	char apellidos;
@@ -784,7 +793,7 @@ char registrarSocio(){ //cambiar
 }
 
 
-char menuAdministrador(){ ///cambiar por los valores que queramos introducir
+char menuAdministrador(){ //cambiar por los valores que queramos introducir
 		printf("\n1. Crear socios\n");
 		printf("2. Crear trabajadores/instructores\n");
 		printf("3. Crear torneos\n");
@@ -841,7 +850,7 @@ char menuTrabajador(){ ///cambiar por los valores que queramos introducir
 
 }
 
-void logIn(){
+void logIn(){		//Funcion para loguearse como admin,socio y trabajador
 	char usuario[Longitud];
 	char clave[Longitud];
 	int intento= 0;
@@ -924,13 +933,13 @@ void logIn(){
 								break;
 
 						case '4':
-
+								printf("Implementar en C++");
 								break;
 						case '5':
-
+								printf("Implementar en C++");
 								break;
 						case '6':
-
+								printf("Implementar en C++");
 								break;
 						case '7':
 								actividad();
@@ -957,10 +966,10 @@ void logIn(){
 	        while(1){
 	        	switch (menuSocio()){
 	        		case '1':
-
+	        				printf("Implementar en C++");
 	        				break;
 	        		case '2':
-
+	        				printf("Implementar en C++");
 	        				break;
 	        		case '3':
 	        				listaTorneoActividad();
@@ -989,13 +998,13 @@ void logIn(){
 		        				break;
 
 		        		case '2':
-
+		        				printf("Implementar en C++");
 		        				break;
 		        		case '3':
-
+		        				printf("Implementar en C++");
 		        				break;
 		        		case '4':
-
+		        				printf("Implementar en C++");
 		        				break;
 		        		case '5':
 		        				listaTorneoActividad();
