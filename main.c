@@ -855,6 +855,33 @@ char menuTrabajador(){ ///cambiar por los valores que queramos introducir
 
 }
 
+void mostrarQuejas(){
+	  int p ;
+	  printf("\nIndique el n%cmero total de quejas que desea realizar: ", 163);
+	  scanf("%d", &p);
+
+	  char (*palabras)[100];
+	  palabras = (char(*)[100]) malloc(p * sizeof(char[100]));
+
+	  int y = 0;
+	  while (y < p) {
+	        printf("Teclea una palabra: ");
+	        fflush(stdin);
+	        scanf("%[^\n]", palabras[y]);
+	        printf("\n");
+	        y++;
+	    }
+	   int i;
+	   for (i = 0;i < p;i++)  {
+	        printf("%s \n", palabras[i]);
+	    }
+	   printf("\n%cEsperamos solucionar sus problemas lo antes posible, muchas gracias!", 173);
+
+	    free(palabras);
+	    palabras= NULL;
+
+}
+
 void logIn(){		//Funcion para loguearse como admin,socio y trabajador
 	char usuario[Longitud];
 	char clave[Longitud];
@@ -980,8 +1007,9 @@ void logIn(){		//Funcion para loguearse como admin,socio y trabajador
 	        				listaTorneoActividad();
 	        				break;
 	        		case '4':
-
+	        				mostrarQuejas();
 	        				break;
+
 	        		case '5':
 	        				system("cls");
 	        				main();
