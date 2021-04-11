@@ -64,7 +64,7 @@ void actividad(){		//Crear actividades
 				perror("Error al crear el archivo");
 				exit(1);
 			}else{
-				printf("Creando archivo\n");
+				printf("\n");
 				printf("Nombre de la Actividad: ");
 				fflush(stdout);
 				fgets(str, MAX_LINE, stdin);
@@ -125,6 +125,7 @@ void instructor(){		//Crear instructores
 				perror("Error al crear el archivo");
 				exit(1);
 			}else{
+				printf("\n");
 				printf("Nombre: ");
 				fflush(stdout);
 				fgets(str, MAX_LINE, stdin);
@@ -208,7 +209,7 @@ void socio(){			//Crear socio
 				perror("Error al crear el archivo");
 				exit(1);
 			}else{
-				printf("Creando archivo\n");
+				printf("\n");
 				printf("Nombre: ");
 				fflush(stdout);
 				fgets(str, MAX_LINE, stdin);
@@ -290,6 +291,7 @@ void torneo(){			//Crear socio
 				perror("Error al crear el archivo");
 				exit(1);
 			}else{
+				printf("\n");
 				printf("Nombre del torneo: ");
 				fflush(stdout);
 				fgets(str, MAX_LINE, stdin);
@@ -355,6 +357,7 @@ void trabajador(){			//Crear trabajador
 				perror("Error al crear el archivo");
 				exit(1);
 			}else{
+				printf("\n");
 				printf("DNI: ");
 				fflush(stdout);
 				fgets(str, MAX_LINE, stdin);
@@ -421,6 +424,7 @@ void trabajadorInstructor(){		//Panel de opciones para crear trabajador o instru
 				perror("Error al crear el archivo");
 				exit(1);
 			}else{
+				printf("\n");
 				printf("DNI: ");
 				fflush(stdout);
 				fgets(str, MAX_LINE, stdin);
@@ -466,6 +470,7 @@ void trabajadorInstructor(){		//Panel de opciones para crear trabajador o instru
 				perror("Error al crear el archivo");
 				exit(1);
 			}else{
+				printf("\n");
 				printf("Nombre: ");
 				fflush(stdout);
 				fgets(str, MAX_LINE, stdin);
@@ -745,7 +750,7 @@ char registrarSocio(){ //Registrar socio, en C++ haremos que una vez registrado,
 		perror("Error al crear el archivo");
 		exit(1);
 	}else{
-		printf("Creando archivo\n");
+		printf("\n");
 		printf("Nombre: ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
