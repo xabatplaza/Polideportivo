@@ -1,63 +1,87 @@
 #include "socio.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#define MAX_LINE 50
+
+void crearSocio(){
+	Socio* a;
+	char str[MAX_LINE];
+	printf("\n Cuantas actividades quieres crear? ");
+	fflush(stdout);
+	fgets(str, MAX_LINE, stdin);
+	sscanf(str,"%i",&(a->cuantas));
+	int i = 0;
+	while(i<(a->cuantas)){
+		FILE * archivo = fopen("socios.txt","a");
+		if (archivo == NULL){
+			perror("Error al crear el archivo");
+			exit(1);
+		}else{
+			printf("\n");
+			printf("Nombre: ");
+			fflush(stdout);
+			fgets(str, MAX_LINE, stdin);
+			sscanf(str, "%s", &(a->nombre));
+			fprintf(archivo,"Nombre: %s ",&(a->nombre));
+
+			printf("Apellidos: ");
+			fflush(stdout);
+			fgets(str, MAX_LINE, stdin);
+			sscanf(str, "%s", &(a->apellidos));
+			fprintf(archivo,"Apellido: %s ",&(a->apellidos));
+
+			printf("DNI: ");
+			fflush(stdout);
+			fgets(str, MAX_LINE, stdin);
+			sscanf(str, "%s", &(a->dni));
+			fprintf(archivo,"DNI: %s ",&(a->dni));
+
+			printf("Email: ");
+			fflush(stdout);
+			fgets(str, MAX_LINE, stdin);
+			sscanf(str, "%s", &(a->email));
+			fprintf(archivo,"Email: %s ",&(a->email));
+
+			printf("Contraseña: ");
+			fflush(stdout);
+			fgets(str, MAX_LINE, stdin);
+			sscanf(str, "%s", &(a->contrasenya));
+			fprintf(archivo,"Contraseña: %s ",&(a->contrasenya));
 
 
-#define Email "socio1@gmail.com"
-#define Contrasenya "1234"
-#define Longitud 80
+			printf("Cuenta Bancaria: ISBN ");
+			fflush(stdout);
+			fgets(str, MAX_LINE, stdin);
+			sscanf(str, "%s", &(a->cuentaBancaria));
+			fprintf(archivo,"Cuenta Bancaria: %s\n",&(a->cuentaBancaria));
 
-void clearIfNeeded(char *str, int max_line)
-{
-	// Limpia los caracteres de más introducidos
-	if ((strlen(str) == max_line-1) && (str[max_line-2] != '\n'))
-		while (getchar() != '\n');
-}
-
-int main(){
-	char email[Longitud];
-	char contrasenya[Longitud];
-	int intento= 0;
-	int ingresa= 0;
-
-	do {
-		system("cls");
-		printf("\n\t\t\t INICIA SESION COMO SOCIO\n");
-		printf("\t\t\t\t **********************************\n");
-		printf("\n\t Email: ");
-		fflush(stdout);
-
-		fgets(email, Longitud, stdin);
-		clearIfNeeded(email, Longitud);
-		email[strcspn(email, "\r\n")] = 0;
-
-		printf("\t Contraseña: ");
-		fflush(stdout);
-		fgets(contrasenya, Longitud, stdin);
-		clearIfNeeded(contrasenya, Longitud);
-		contrasenya[strcspn(contrasenya, "\r\n")] = 0;
-
-
-		if (strcmp(email,Email)==0 && strcmp(contrasenya,Contrasenya)==0) {
-			ingresa=1;
-
-		}else {
-			printf("\n\t Email y/o Contraseña son incorrectos\n");
-			intento++;
-			getchar();
-
-		}
-	} while (intento<3 && ingresa==0);
-
-	if (ingresa==1) {
-		printf("\n\t Bienvenido al sistema\n");
-
-		//Ir a la ventana correspondiente
-	}else{
-		printf("\n\t Has sobrepasado el numero maximo de intentos\n");
+			fclose(archivo);
 	}
-
+		printf("i++");
+		i++;
+  }
 
 
 }
+void listarSocios(){
+	char aux;
+	FILE * fichero;
 
+	fichero = fopen("socios.txt","r");
+	if(fichero == NULL){
+		printf("No se ha podido abrir el fichero. \n");
+		exit(1);
+	}
+	while(aux != EOF){
+		aux = fgetc(fichero);
+		printf("%c",aux);
+	}
+	printf("\n");
+	printf("\n");
+	printf("\n");
+
+	fclose(fichero);
+	system("pause");
+	system("cls");
+}

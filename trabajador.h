@@ -1,7 +1,22 @@
+/*
+ * trabajador.h
+ *
+ *  Created on: 1 jun. 2021
+ *      Author: Usuario
+ */
+
 #ifndef TRABAJADOR_H_
 #define TRABAJADOR_H_
 
-void clearIfNeeded(char *str, int max_line);
-int main();
+typedef struct{
+	char dni;
+	char email;
+	char contrasenya;
+	char cuentaBancaria;
+	int cuantas;
+}Trabajador;
 
-#endif
+void crearTrabajador();
+void listarTrabajadores();
+
+#endif /* TRABAJADOR_H_ */
