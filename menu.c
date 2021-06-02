@@ -149,8 +149,8 @@ char menuAdministrador(){ //cambiar por los valores que queramos introducir
 }
 
 char menuSocio(){ ///cambiar por los valores que queramos introducir
-	printf("\n1. Apuntarse/Desapuntarse a actividad\n");
-	printf("2. Apuntarse/Desapuntarse a torneo\n");
+	printf("\n1. Apuntarse/Desapuntarse a actividad\n");//C++
+	printf("2. Apuntarse/Desapuntarse a torneo\n");//C++
 	printf("3. Ver lista de torneos/actividades\n");
 	printf("4. Enviar queja\n");
 	printf("5. Salir\n");
@@ -167,9 +167,9 @@ char menuSocio(){ ///cambiar por los valores que queramos introducir
 
 char menuTrabajador(){ ///cambiar por los valores que queramos introducir
 	printf("\n1. Apuntar a socio\n");
-	printf("2. Desapuntar socio\n");
-	printf("3. Asignar/Desasignar socio a torneo\n");
-	printf("4. Asignar/Desasignar socio a actividad\n");
+	printf("2. Desapuntar socio\n");//C++
+	printf("3. Asignar/Desasignar socio a torneo\n");//C++
+	printf("4. Asignar/Desasignar socio a actividad\n");//C++
 	printf("5.Ver lista de torneos/actividades\n");
 	printf("6. Salir\n");
 	printf("\n");
