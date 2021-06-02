@@ -8,7 +8,7 @@ void crearTorneo(){
 	Torneo* t;
 	char str[MAX_LINE];
 	char integer[MAX_LINE];
-	printf("\n Cuantos socios quieres crear? ");
+	printf("\n Cuantos torneos quieres crear? ");
 	fflush(stdout);
 	fgets(str, MAX_LINE, stdin);
 	sscanf(str,"%i",&(t->cuantas));

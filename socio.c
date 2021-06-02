@@ -7,7 +7,7 @@
 void crearSocio(){
 	Socio* a;
 	char str[MAX_LINE];
-	printf("\n Cuantas actividades quieres crear? ");
+	printf("\n Cuantos socios quieres crear? ");
 	fflush(stdout);
 	fgets(str, MAX_LINE, stdin);
 	sscanf(str,"%i",&(a->cuantas));
@@ -58,7 +58,6 @@ void crearSocio(){
 
 			fclose(archivo);
 	}
-		printf("i++");
 		i++;
   }
 
