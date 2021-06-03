@@ -7,64 +7,51 @@
 void crearInstructor(){
 	Instructor* ins;
 	char str[MAX_LINE];
-	printf("\n Cuantos instructores quieres crear? ");
-	fflush(stdout);
-	fgets(str, MAX_LINE, stdin);
-	sscanf(str,"%i",&(ins->cuantas));
-	int i = 0;
-	while(i<(ins->cuantas)){
-		FILE * archivo = fopen("actividades.txt","a");
-		if (archivo == NULL){
-			perror("Error al crear el archivo");
-			exit(1);
-		}else{
-			FILE * archivo = fopen("instructores.txt","a");
-			if (archivo == NULL){
-				perror("Error al crear el archivo");
-				exit(1);
-			}else{
-				printf("\n");
-				printf("Nombre: ");
-				fflush(stdout);
-				fgets(str, MAX_LINE, stdin);
-				sscanf(str, "%s", &(ins->nombre));
-				fprintf(archivo,"Nombre: %s ",&(ins->nombre));
+	FILE * archivo = fopen("actividades.txt","a");
+	if (archivo == NULL){
+		perror("Error al crear el archivo");
+		exit(1);
+	}else{
+		printf("\n");
+		printf("Nombre: ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &(ins->nombre));
+		fprintf(archivo,"Nombre: %s ",&(ins->nombre));
 
-				printf("DNI: ");
-				fflush(stdout);
-				fgets(str, MAX_LINE, stdin);
-				sscanf(str, "%s", &(ins->dni));
-				fprintf(archivo,"DNI: %s ",&(ins->dni));
+		printf("DNI: ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &(ins->dni));
+		fprintf(archivo,"DNI: %s ",&(ins->dni));
 
-				printf("Email: ");
-				fflush(stdout);
-				fgets(str, MAX_LINE, stdin);
-				sscanf(str, "%s", &(ins->email));
-				fprintf(archivo,"Email: %s ",&(ins->email));
+		printf("Email: ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &(ins->email));
+		fprintf(archivo,"Email: %s ",&(ins->email));
 
-				printf("Contraseña: ");
-				fflush(stdout);
-				fgets(str, MAX_LINE, stdin);
-				sscanf(str, "%s", &(ins->contrasenya));
-				fprintf(archivo,"Contraseña: %s ",&(ins->contrasenya));
+		printf("Contraseña: ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &(ins->contrasenya));
+		fprintf(archivo,"Contraseña: %s ",&(ins->contrasenya));
 
-				printf("Direccion: ");
-				fflush(stdout);
-				fgets(str,MAX_LINE, stdin);
-				sscanf(str, "%s", &(ins->dir));
-				fprintf(archivo, "Direccion: %s",&(ins->dir));
+		printf("Direccion: ");
+		fflush(stdout);
+		fgets(str,MAX_LINE, stdin);
+		sscanf(str, "%s", &(ins->dir));
+		fprintf(archivo, "Direccion: %s",&(ins->dir));
 
-				printf("Cuenta Bancaria: ISBN ");
-				fflush(stdout);
-				fgets(str, MAX_LINE, stdin);
-				sscanf(str, "%s", &(ins->cuentaBancaria));
-				fprintf(archivo,"Cuenta Bancaria: %s\n",&(ins->cuentaBancaria));
+		printf("Cuenta Bancaria: ISBN ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &(ins->cuentaBancaria));
+		fprintf(archivo,"Cuenta Bancaria: %s\n",&(ins->cuentaBancaria));
+		fclose(archivo);
+		system("pause");
+		system("cls");
 
-				fclose(archivo);
-			}
-
-		}
-		i++;
 	}
 }
 void listarInstructor(){

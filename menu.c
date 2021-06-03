@@ -4,6 +4,7 @@
 #include "torneo.h"
 #include "trabajador.h"
 #include "menu.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -131,11 +132,11 @@ char menu(){ //Menu principal de eleccion
 
 char menuAdministrador(){ //cambiar por los valores que queramos introducir
 		printf("\n1. Crear socios\n");
-		printf("2. Crear trabajadores/instructores\n");
+		printf("2. Crear trabajador\n");
 		printf("3. Crear torneos\n");
-		printf("4. Despedir trabajador/instructores\n");
-		printf("5. Desapuntar socio\n");
-		printf("6. Borrar torneo\n");
+		printf("4. Crear istructor\n");//Base de datos
+		printf("5. Desapuntar socio\n");//Base de datos
+		printf("6. Borrar torneo\n");//C++
 		printf("7. Gestionar actividades\n");
 		printf("8. Ver lista de torneos/actividad/socios/instructores\n");
 		printf("9. Salir\n");
@@ -149,8 +150,8 @@ char menuAdministrador(){ //cambiar por los valores que queramos introducir
 }
 
 char menuSocio(){ ///cambiar por los valores que queramos introducir
-	printf("\n1. Apuntarse/Desapuntarse a actividad\n");//C++
-	printf("2. Apuntarse/Desapuntarse a torneo\n");//C++
+	printf("\n1. Apuntarse/Desapuntarse a actividad\n");
+	printf("2. Apuntarse/Desapuntarse a torneo\n");
 	printf("3. Ver lista de torneos/actividades\n");
 	printf("4. Enviar queja\n");
 	printf("5. Salir\n");
@@ -167,9 +168,9 @@ char menuSocio(){ ///cambiar por los valores que queramos introducir
 
 char menuTrabajador(){ ///cambiar por los valores que queramos introducir
 	printf("\n1. Apuntar a socio\n");
-	printf("2. Desapuntar socio\n");//C++
-	printf("3. Asignar/Desasignar socio a torneo\n");//C++
-	printf("4. Asignar/Desasignar socio a actividad\n");//C++
+	printf("2. Desapuntar socio\n");
+	printf("3. Asignar socio a torneo\n");//Desasignar
+	printf("4. Asignar socio a actividad\n");//Desasignar
 	printf("5.Ver lista de torneos/actividades\n");
 	printf("6. Salir\n");
 	printf("\n");
@@ -281,7 +282,7 @@ void logIn(){		//Funcion para loguearse como admin,socio y trabajador
 								crearSocio();
 								break;
 						case '2':
-								trabajadorInstructor();
+								crearTrabajador();
 								break;
 
 						case '3':
@@ -289,8 +290,7 @@ void logIn(){		//Funcion para loguearse como admin,socio y trabajador
 								break;
 
 						case '4':
-								system("cls");
-								printf("Implementar en C++\n");
+								crearInstructor();
 								break;
 						case '5':
 								system("cls");
@@ -326,11 +326,13 @@ void logIn(){		//Funcion para loguearse como admin,socio y trabajador
 	        	switch (menuSocio()){
 	        		case '1':
 	        				system("cls");
-	        				printf("Implementar en C++\n");
+	        				listarActividad();
+	        				apuntarSocioActividad();
 	        				break;
 	        		case '2':
 	        				system("cls");
-	        				printf("Implementar en C++\n");
+	        				listarTorneos();
+	        				apuntarSocioTorneo();
 	        				break;
 	        		case '3':
 	        				listaTorneoActividad();
@@ -367,11 +369,11 @@ void logIn(){		//Funcion para loguearse como admin,socio y trabajador
 		        				break;
 		        		case '3':
 		        				system("cls");
-		        				printf("Implementar en C++");
+		        				apuntarSocioActividad();
 		        				break;
 		        		case '4':
 		        				system("cls");
-		        				printf("Implementar en C++");
+		        				apuntarSocioTorneo();
 		        				break;
 		        		case '5':
 		        				listaTorneoActividad();
