@@ -131,17 +131,18 @@ char menu(){ //Menu principal de eleccion
 
 
 char menuAdministrador(){ //cambiar por los valores que queramos introducir
-		printf("\n1. Crear socios\n");
-		printf("2. Crear trabajador\n");
-		printf("3. Crear torneos\n");
-		printf("4. Crear istructor\n");//Base de datos
-		printf("5. Desapuntar socio\n");//Base de datos
-		printf("6. Borrar torneo\n");//C++
-		printf("7. Gestionar actividades\n");
-		printf("8. Ver lista de torneos/actividad/socios/instructores\n");
-		printf("9. Salir\n");
-		printf("\n");
-		printf("\t%cQu%c opci%cn desea? ->  ",168, 130, 162);
+			printf("\n1. Crear socios\n");
+			printf("2. Crear trabajador\n");
+			printf("3. Crear torneos\n");
+			printf("4. Crear istructor\n");//Base de datos
+			printf("5. Desapuntar socio\n");//FICHEROS
+			printf("6. Borrar torneo\n");//FICHEROS
+			printf("7. Gestionar actividades\n");
+			printf("8. Ver lista de torneos/actividad/socios/instructores\n");
+			printf("9. Despedir Trabajador");//FICHEROS
+			printf("10. Salir\n");
+			printf("\n");
+			printf("\t%cQu%c opci%cn desea? ->  ",168, 130, 162);
 
 		fflush(stdout);
 		char linea[MAX_LINE];
@@ -277,46 +278,44 @@ void logIn(){		//Funcion para loguearse como admin,socio y trabajador
 			system("cls");
 			printf("\n\t %cBienvenido al sistema como administrador!\n", 173);
 			while(1){
-				switch (menuAdministrador()){
-						case '1':
-								crearSocio();
-								break;
-						case '2':
-								crearTrabajador();
-								break;
+							switch (menuAdministrador()){
+									case '1':
+											crearSocio();
+											break;
+									case '2':
+											crearTrabajador();
+											break;
 
-						case '3':
-								crearTorneo();
-								break;
+									case '3':
+											crearTorneo();
+											break;
 
-						case '4':
-								crearInstructor();
-								break;
-						case '5':
-								system("cls");
-								printf("Implementar en C++\n");
-								break;
-						case '6':
-								system("cls");
-								printf("Implementar en C++\n");
-								break;
-						case '7':
-								crearActividad();
-								break;
+									case '4':
+											crearInstructor();
+											break;
+									case '5':
+											//desapuntar socio
+											break;
+									case '6':
+											//borrar torneo
+									case '7':
+											crearActividad();
+											break;
 
-						case '8':
-								listarTodo();
-								break;
+									case '8':
+											listarTodo();
+											break;
+									case '9':
+											//despedirtrabajador
 
-						case '9':
-								system("cls");
-								main();
-								break;
-								exit(0);
+									case '10':
+											system("cls");
+											main();
+											break;
+											exit(0);
 
 
-					}
-
+								}
 				}
 
 	    }else if(ingresaSocio==1){

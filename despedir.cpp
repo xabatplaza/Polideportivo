@@ -1,20 +1,21 @@
-/*
- * despedir.cpp
- *
- *  Created on: 2 jun. 2021
- *      Author: Usuario-W10
- */
 #include <iostream>
 #include <string.h>
-extern "C"{
-#include "despedir.h"
-}
+
+#include "Despedir.h"
+
 #include <stdlib.h>
 #include <fstream>
 
 using namespace std;
+extern "C"
 
-extern "C" void despedirTrabajador()
+void QuitarSocio(){
+
+}
+void BorrarTorneo(){
+
+}
+void despedirTrabajador()
 {
 	 int clave, opcion, Bclave;
 	 char nombre[30];
@@ -50,12 +51,9 @@ extern "C" void despedirTrabajador()
 	 remove("trabajadores.txt");
 	 rename("Temp.txt", "trabajadores.txt");
 }
-void despedirTrabajadores(Trabajador** tr, int numTr)
-{
 
-}
 void DespedirTodosTrabajadores(){
-	FILE * archivo = fopen("trabajadores.txt","a");
-	fclose(archivo);
+	/*FILE * archivo = fopen("trabajadores.txt","a");
+	fclose(archivo);*/
 	remove("trabajadores.txt");
 }

@@ -1,33 +1,32 @@
-/*
- * despedir.h
- *
- *  Created on: 2 jun. 2021
- *      Author: Usuario-W10
- */
-
-
 #ifndef DESPEDIR_H_
-extern "C"
 #define DESPEDIR_H_
 
 #include "trabajador.h"
 #include "socio.h"
 #include "instructor.h"
 
-//#include <iostream.h>
-#include <string.h>
-using namespace std;
+class Despedir{
+    private:
+        Trabajador ** trabajadores;
+        int numTrabajadores;
+        Socio ** socio;
+        int numSocios;
+    public:
+        /*Despedir(Trabajador** trabajadores, int numTrabajadores);
+        Despedir(const Despedir& de);
+        ~Despedir();*/
 
-class DespedirTrabajador
-{
-private:
-	Trabajador** trabajadores;
-	int numTrabajadores;
-public:
-	void despedirTrabajador();
-	void despedirTrabajadores(Trabajador** tr, int numTr);
-	void DespedirTodosTrabajadores();
+        void QuitarSocio();
+        void QuitarTodosLosSocio();
+        void BorrarTorneo();
+        void BorrarTodosLosTorneos();
+        void DespedirTrabajador();
+        void DespedirTodosLosTrabajadores();
+
 };
+
+#endif /* DESPEDIR_H_ */
+
 
 /*class DespedirSocio
 {
@@ -49,6 +48,3 @@ public:
 	void despedirInstructores(Instructor** ins, int numIns);
 };
 */
-
-#endif /* DESPEDIR_H_ */
-
