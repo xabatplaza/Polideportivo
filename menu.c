@@ -139,8 +139,9 @@ char menuAdministrador(){ //cambiar por los valores que queramos introducir
 			printf("6. Borrar torneo\n");//FICHEROS
 			printf("7. Gestionar actividades\n");
 			printf("8. Ver lista de torneos/actividad/socios/instructores\n");
-			printf("9. Despedir Trabajador");//FICHEROS
-			printf("10. Salir\n");
+			printf("9. Despedir Instructor\n");
+			printf("10. Despedir Trabajador\n");//FICHEROS
+			printf("11. Salir\n");
 			printf("\n");
 			printf("\t%cQu%c opci%cn desea? ->  ",168, 130, 162);
 
@@ -280,41 +281,47 @@ void logIn(){		//Funcion para loguearse como admin,socio y trabajador
 			while(1){
 							switch (menuAdministrador()){
 									case '1':
-											crearSocio();
-											break;
+										crearSocio();
+										break;
 									case '2':
-											crearTrabajador();
-											break;
+										crearTrabajador();
+										break;
 
 									case '3':
-											crearTorneo();
-											break;
+										crearTorneo();
+										break;
 
 									case '4':
-											crearInstructor();
-											break;
+										crearInstructor();
+										break;
+
+									/*No se pueden el 5, 6, 9 y 10 porque este menu está hecho en c
+									Y la clase a la que tienen que ir está en c++*/
+
 									case '5':
-											//desapuntar socio
-											break;
+										//menuQuitarSocio();
+										break;
 									case '6':
-											//borrar torneo
+										//menuBorrarTorneo();
+										break;
 									case '7':
-											crearActividad();
-											break;
+										crearActividad();
+										break;
 
 									case '8':
-											listarTodo();
-											break;
+										listarTodo();
+										break;
 									case '9':
-											//despedirtrabajador
-
+										//menuDespedirInstructor();
+										break;
 									case '10':
-											system("cls");
-											main();
-											break;
-											exit(0);
-
-
+										//menuDespedirtrabajador();
+										break;
+									case '11':
+										system("cls");
+										main();
+										break;
+										exit(0);
 								}
 				}
 

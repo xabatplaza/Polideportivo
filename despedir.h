@@ -1,4 +1,5 @@
 #ifndef DESPEDIR_H_
+extern "C"
 #define DESPEDIR_H_
 
 #include "trabajador.h"
@@ -16,12 +17,21 @@ class Despedir{
         Despedir(const Despedir& de);
         ~Despedir();*/
 
-        void QuitarSocio();
-        void QuitarTodosLosSocio();
-        void BorrarTorneo();
-        void BorrarTodosLosTorneos();
-        void DespedirTrabajador();
-        void DespedirTodosLosTrabajadores();
+        void menuQuitarSocio();
+        void quitarSocio();
+        void quitarTodosLosSocio();
+
+        void menuBorrarTorneo();
+        void borrarTorneo();
+        void borrarTodosLosTorneos();
+
+        void menuDespedirInstructor();
+        void despedirInstructor();
+        void despedirTodosLosIntructores();
+
+        void menuDespedirTrabajador();
+        void despedirTrabajador();
+        void despedirTodosLosTrabajadores();
 
 };
 
