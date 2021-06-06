@@ -87,7 +87,7 @@ extern "C" void apuntarSocioTorneo(){
 
 	archivo.close();
 	system("pause");
-
+	system("cls");
 }
 extern "C" void apuntarSocioActividad(){
 	system("cls");
@@ -112,5 +112,6 @@ extern "C" void apuntarSocioActividad(){
 
 	archivo.close();
 	system("pause");
+	system("cls");
 }
 

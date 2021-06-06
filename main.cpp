@@ -14,7 +14,6 @@ extern "C"{
 #include <iostream>
 using namespace std;
 
-
 int main(){
 	char opcion;
 	opcion= menu();
@@ -22,7 +21,6 @@ int main(){
 			case '1':
 					logIn();
 					break;
-
 			case '2':
 					logIn();
 					break;

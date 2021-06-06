@@ -84,10 +84,10 @@ void borrarTorneo(){
 	ifstream Leer;
 	ofstream Temp;
 	Leer.open("torneos.txt");
-	Temp.open("torneos.txt");
+	Temp.open("torneos.txt",ios::app);
 	Leer>>nombre;
 	bool encontrado = false;
-	cout<<"Ingrese la clave del torneo a eliminar:"<<endl;
+	cout<<"Ingrese la clave del torneo que se quiera eliminar:"<<endl;
 	cin>>Bclave;
 	while(getline(Leer,texto)){
 		 //Leer>>clave;
@@ -100,14 +100,15 @@ void borrarTorneo(){
 		 }else{
 			Temp<<"Nombre:"<<texto<<endl;
 		 }
-		}if(encontrado == false){
-			cout<<"Clave no encontrada"<<endl;
-			 borrarTorneo();
-		 }
-		 Leer.close();
-		 Temp.close();
-		 remove("torneos.txt");
-		 rename("torneos.txt","torneos.txt");
+	}if(encontrado == false){
+		cout<<"Clave no encontrada"<<endl;
+		quitarSocio();
+	 }
+
+	 remove("torneos.txt");
+	 rename("torneos.txt","torneos.txt");
+	 Leer.close();
+	 Temp.close();
 }
 void borrarTodosLosTorneos(){
 	remove("torneos.txt");
@@ -125,11 +126,13 @@ extern "C" void menuBorrarTorneo(){
 	while(i=1){
 		if (opcion == "1"){
 			borrarTorneo();
+			i++;
 		}else if (opcion == "2"){
 			borrarTodosLosTorneos();
+			i++;
 		}else{
 			cout << "Error" << endl;
-			menuBorrarTorneo();
+			i++;
 		}
 	}
 }
@@ -142,10 +145,10 @@ void despedirInstructor(){
 	ifstream Leer;
 	ofstream Temp;
 	Leer.open("instructores.txt");
-	Temp.open("instructores.txt");
+	Temp.open("instructores.txt",ios::app);
 	Leer>>nombre;
 	bool encontrado = false;
-	cout<<"Ingrese el DNI de la persona que se va a despedir:"<<endl;
+	cout<<"Ingrese el dni del instructor que se quiera eliminar:"<<endl;
 	cin>>Bclave;
 	while(getline(Leer,texto)){
 		 //Leer>>clave;
@@ -158,14 +161,15 @@ void despedirInstructor(){
 		 }else{
 			Temp<<"Nombre:"<<texto<<endl;
 		 }
-		}if(encontrado == false){
-			cout<<"Clave no encontrada"<<endl;
-			 despedirInstructor();
-		 }
-		 Leer.close();
-		 Temp.close();
-		 remove("instructores.txt");
-		 rename("instructores.txt","instructores.txt");
+	}if(encontrado == false){
+		cout<<"Clave no encontrada"<<endl;
+		quitarSocio();
+	 }
+
+	 remove("instructores.txt");
+	 rename("instructores.txt","instructores.txt");
+	 Leer.close();
+	 Temp.close();
 
 }
 void despedirTodosLosIntructores(){
@@ -175,7 +179,7 @@ void despedirTodosLosIntructores(){
 
 extern "C" void menuDespedirInstructor(){
 	string opcion;
-	cout << "\n1. Despedir Instructor \n" << endl;
+	cout << "\nDespedir Instructor \n" << endl;
 	cout << "1. Despedir un instructor\n" << endl;
 	cout << "2. Despedir a todos los instructores\n" << endl;
 	cout << "\nIngrese una opcion: " << endl;
@@ -189,7 +193,6 @@ extern "C" void menuDespedirInstructor(){
 			despedirTodosLosIntructores();
 		}else{
 			cout << "Error" << endl;
-			menuBorrarTorneo();
 		}
 	}
 }
@@ -203,10 +206,10 @@ void despedirTrabajador()
 	ifstream Leer;
 	ofstream Temp;
 	Leer.open("trabajadores.txt");
-	Temp.open("trabajadores.txt");
+	Temp.open("trabajadores.txt",ios::app);
 	Leer>>nombre;
 	bool encontrado = false;
-	cout<<"Ingrese el DNI del trabajador que se va a despedir:"<<endl;
+	cout<<"Ingrese el dni del trabajador que se quiera eliminar:"<<endl;
 	cin>>Bclave;
 	while(getline(Leer,texto)){
 		 //Leer>>clave;
@@ -219,14 +222,15 @@ void despedirTrabajador()
 		 }else{
 			Temp<<"Nombre:"<<texto<<endl;
 		 }
-		}if(encontrado == false){
-			cout<<"Clave no encontrada"<<endl;
-			 despedirTrabajador();
-		 }
-		 Leer.close();
-		 Temp.close();
-		 remove("trabajadores.txt");
-		 rename("trabajadores.txt","trabajadores.txt");
+	}if(encontrado == false){
+		cout<<"Clave no encontrada"<<endl;
+		quitarSocio();
+	 }
+
+	 remove("trabajadores.txt");
+	 rename("trabajadores.txt","trabajadores.txt");
+	 Leer.close();
+	 Temp.close();
 }
 
 void despedirTodosLosTrabajadores(){
@@ -239,7 +243,7 @@ void despedirTodosLosTrabajadores(){
 
 extern "C" void menuDespedirTrabajador(){
 	string opcion;
-	cout << "\n1. Despedir Trabajador \n" << endl;
+	cout << "\nDespedir Trabajador \n" << endl;
 	cout << "1. Despedir un trabajador\n" << endl;
 	cout << "2. Despedir a toda la plantilla\n" << endl;
 	cout << "\nIngrese una opcion: " << endl;

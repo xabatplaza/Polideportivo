@@ -214,9 +214,10 @@ char menuAdministrador(){ //cambiar por los valores que queramos introducir
 	return *linea;
 	}
 
-char menuSocio(){ ///cambiar por los valores que queramos introducir
-	printf("\n1. Apuntarse/Desapuntarse a actividad\n");
-	printf("2. Apuntarse/Desapuntarse a torneo\n");
+char menuSocio(){
+	system("cls");///cambiar por los valores que queramos introducir
+	printf("\n1. Apuntarse a actividad\n");
+	printf("2. Apuntarse a torneo\n");
 	printf("3. Ver lista de torneos/actividades\n");
 	printf("4. Enviar queja\n");
 	printf("5. Salir\n");
@@ -434,10 +435,12 @@ void logIn(){		//Funcion para loguearse como admin,socio y trabajador
 		        				break;
 		        		case '3':
 		        				system("cls");
+		        				listarActividad();
 		        				apuntarSocioActividad();
 		        				break;
 		        		case '4':
 		        				system("cls");
+		        				listarTorneos();
 		        				apuntarSocioTorneo();
 		        				break;
 		        		case '5':
