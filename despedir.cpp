@@ -19,30 +19,31 @@ void quitarSocio(){
 	ifstream Leer;
 	ofstream Temp;
 	Leer.open("socios.txt");
-	Temp.open("socio.txt");
+	Temp.open("socios.txt",ios::app);
 	Leer>>nombre;
 	bool encontrado = false;
 	cout<<"Ingrese el dni de la persona que se quiera eliminar:"<<endl;
 	cin>>Bclave;
-	while(!Leer.eof()){
+	while(getline(Leer,texto)){
 		 //Leer>>clave;
-		getline(Leer,texto);
-			 if(clave=texto.find(Bclave,0)!= (string::npos)){
-				 encontrado = true;
-				 cout<<endl;
-				 cout<<"Eliminado"<<endl;
-
-			 }
-			 else{
-				 Temp<<nombre<<" "<<clave<<endl;
-			 }
-		 }if(encontrado == false){
-			 cout<<"Clave no encontrada"<<endl;
-			 quitarSocio();
+		 if(clave=texto.find(Bclave,0)!= (string::npos)){
+			 encontrado = true;
+			 texto.replace(texto.find(Bclave,0),texto.length(),"");
+			 Temp<<texto<<endl;
+			 cout<<"Eliminado"<<endl;
+			 break;
+		 }else{
+			Temp<<"Nombre:"<<texto<<endl;
 		 }
-		 Leer.close();
-		 Temp.close();
-		 rename("socios.txt", "socios.txt");
+	}if(encontrado == false){
+		cout<<"Clave no encontrada"<<endl;
+		quitarSocio();
+	 }
+
+	 remove("socios.txt");
+	 rename("socios.txt","socios.txt");
+	 Leer.close();
+	 Temp.close();
 
 }
 void quitarTodosLosSocios(){
@@ -88,25 +89,25 @@ void borrarTorneo(){
 	bool encontrado = false;
 	cout<<"Ingrese la clave del torneo a eliminar:"<<endl;
 	cin>>Bclave;
-	while(!Leer.eof()){
+	while(getline(Leer,texto)){
 		 //Leer>>clave;
-		getline(Leer,texto);
-			 if(clave=texto.find(Bclave,0)!= (string::npos)){
-				 encontrado = true;
-				 cout<<endl;
-				 cout<<"Eliminado"<<endl;
-
-			 }
-			 else{
-				 Temp<<nombre<<" "<<clave<<endl;
-			 }
-		 }if(encontrado == false){
-			 cout<<"Clave no encontrada"<<endl;
+		 if(clave=texto.find(Bclave,0)!= (string::npos)){
+			 encontrado = true;
+			 texto.replace(texto.find(Bclave,0),texto.length(),"");
+			 Temp<<texto<<endl;
+			 cout<<"Eliminado"<<endl;
+			 break;
+		 }else{
+			Temp<<"Nombre:"<<texto<<endl;
+		 }
+		}if(encontrado == false){
+			cout<<"Clave no encontrada"<<endl;
 			 borrarTorneo();
 		 }
 		 Leer.close();
 		 Temp.close();
-		 rename("torneos.txt", "torneos.txt");
+		 remove("torneos.txt");
+		 rename("torneos.txt","torneos.txt");
 }
 void borrarTodosLosTorneos(){
 	remove("torneos.txt");
@@ -146,25 +147,25 @@ void despedirInstructor(){
 	bool encontrado = false;
 	cout<<"Ingrese el DNI de la persona que se va a despedir:"<<endl;
 	cin>>Bclave;
-	while(!Leer.eof()){
+	while(getline(Leer,texto)){
 		 //Leer>>clave;
-		getline(Leer,texto);
-			 if(clave=texto.find(Bclave,0)!= (string::npos)){
-				 encontrado = true;
-				 cout<<endl;
-				 cout<<"Eliminado"<<endl;
-
-			 }
-			 else{
-				 Temp<<nombre<<" "<<clave<<endl;
-			 }
-		 }if(encontrado == false){
-			 cout<<"Clave no encontrada"<<endl;
+		 if(clave=texto.find(Bclave,0)!= (string::npos)){
+			 encontrado = true;
+			 texto.replace(texto.find(Bclave,0),texto.length(),"");
+			 Temp<<texto<<endl;
+			 cout<<"Eliminado"<<endl;
+			 break;
+		 }else{
+			Temp<<"Nombre:"<<texto<<endl;
+		 }
+		}if(encontrado == false){
+			cout<<"Clave no encontrada"<<endl;
 			 despedirInstructor();
 		 }
 		 Leer.close();
 		 Temp.close();
-		 rename("instructores.txt", "instructores.txt");
+		 remove("instructores.txt");
+		 rename("instructores.txt","instructores.txt");
 
 }
 void despedirTodosLosIntructores(){
@@ -201,31 +202,31 @@ void despedirTrabajador()
 	ofstream Guardar;
 	ifstream Leer;
 	ofstream Temp;
-	Leer.open("instructores.txt");
-	Temp.open("instructores.txt");
+	Leer.open("trabajadores.txt");
+	Temp.open("trabajadores.txt");
 	Leer>>nombre;
 	bool encontrado = false;
 	cout<<"Ingrese el DNI del trabajador que se va a despedir:"<<endl;
 	cin>>Bclave;
-	while(!Leer.eof()){
+	while(getline(Leer,texto)){
 		 //Leer>>clave;
-		getline(Leer,texto);
-			 if(clave=texto.find(Bclave,0)!= (string::npos)){
-				 encontrado = true;
-				 cout<<endl;
-				 cout<<"Eliminado"<<endl;
-
-			 }
-			 else{
-				 Temp<<nombre<<" "<<clave<<endl;
-			 }
-		 }if(encontrado == false){
-			 cout<<"Clave no encontrada"<<endl;
+		 if(clave=texto.find(Bclave,0)!= (string::npos)){
+			 encontrado = true;
+			 texto.replace(texto.find(Bclave,0),texto.length(),"");
+			 Temp<<texto<<endl;
+			 cout<<"Eliminado"<<endl;
+			 break;
+		 }else{
+			Temp<<"Nombre:"<<texto<<endl;
+		 }
+		}if(encontrado == false){
+			cout<<"Clave no encontrada"<<endl;
 			 despedirTrabajador();
 		 }
 		 Leer.close();
 		 Temp.close();
-		 rename("trabajadores.txt", "trabajadores.txt");
+		 remove("trabajadores.txt");
+		 rename("trabajadores.txt","trabajadores.txt");
 }
 
 void despedirTodosLosTrabajadores(){
