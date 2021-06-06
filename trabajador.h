@@ -13,6 +13,7 @@ typedef struct{
 	char email;
 	char contrasenya;
 	char cuentaBancaria;
+	int sueldo;
 	int cuantas;
 }Trabajador;
 

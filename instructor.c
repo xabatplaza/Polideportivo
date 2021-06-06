@@ -7,7 +7,7 @@
 void crearInstructor(){
 	Instructor* ins;
 	char str[MAX_LINE];
-	FILE * archivo = fopen("actividades.txt","a");
+	FILE * archivo = fopen("instructores.txt","a");
 	if (archivo == NULL){
 		perror("Error al crear el archivo");
 		exit(1);

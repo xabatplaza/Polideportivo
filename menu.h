@@ -17,5 +17,6 @@ char menuSocio();
 char menuTrabajador();
 void mostrarQuejas();
 void logIn();
+char menuBaseDatos();
 
 #endif /* MENU_H_ */

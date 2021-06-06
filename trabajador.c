@@ -66,3 +66,4 @@ void listarTrabajadores(){
 	system("pause");
 	system("cls");
 }
+

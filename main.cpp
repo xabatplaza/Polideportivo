@@ -5,13 +5,15 @@ extern "C"{
 #include "torneo.h"
 #include "trabajador.h"
 #include "menu.h"
+#include "sqlite3.h"
+#include "BD.h"
 }
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <iostream>
 using namespace std;
+
 
 int main(){
 	char opcion;
@@ -41,5 +43,3 @@ int main(){
 	}
 	return 0;
 }
-
-
