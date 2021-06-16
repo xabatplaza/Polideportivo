@@ -5,7 +5,7 @@
 #define MAX_LINE 50
 
 void crearSocio(){
-	Socio* a;
+	Socio* s;
 	char str[MAX_LINE];
 	FILE * archivo = fopen("socios.txt","a");
 	if (archivo == NULL){
@@ -16,39 +16,39 @@ void crearSocio(){
 		printf("Nombre: ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
-		sscanf(str, "%s", &(a->nombre));
-		fprintf(archivo,"Nombre: %s ",&(a->nombre));
+		sscanf(str, "%s", &(s->nombre));
+		fprintf(archivo,"Nombre: %s ",&(s->nombre));
 
 		printf("Apellidos: ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
-		sscanf(str, "%s", &(a->apellidos));
-		fprintf(archivo,"Apellido: %s ",&(a->apellidos));
+		sscanf(str, "%s", &(s->apellidos));
+		fprintf(archivo,"Apellido: %s ",&(s->apellidos));
 
 		printf("DNI: ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
-		sscanf(str, "%s", &(a->dni));
-		fprintf(archivo,"DNI: %s ",&(a->dni));
+		sscanf(str, "%s", &(s->dni));
+		fprintf(archivo,"DNI: %s ",&(s->dni));
 
 		printf("Email: ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
-		sscanf(str, "%s", &(a->email));
-		fprintf(archivo,"Email: %s ",&(a->email));
+		sscanf(str, "%s", &(s->email));
+		fprintf(archivo,"Email: %s ",&(s->email));
 
 		printf("Contraseña: ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
-		sscanf(str, "%s", &(a->contrasenya));
-		fprintf(archivo,"Contraseña: %s ",&(a->contrasenya));
+		sscanf(str, "%s", &(s->contrasenya));
+		fprintf(archivo,"Contraseña: %s ",&(s->contrasenya));
 
 
 		printf("Cuenta Bancaria: ISBN ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
-		sscanf(str, "%s", &(a->cuentaBancaria));
-		fprintf(archivo,"Cuenta Bancaria: %s\n",&(a->cuentaBancaria));
+		sscanf(str, "%s", &(s->cuentaBancaria));
+		fprintf(archivo,"Cuenta Bancaria: %s\n",&(s->cuentaBancaria));
 		fclose(archivo);
 
 
