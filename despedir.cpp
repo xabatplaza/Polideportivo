@@ -11,40 +11,43 @@
 
 using namespace std;
 void quitarSocio(){
-	int clave;
-	string Bclave;
-	char nombre[30];
-	string texto;
-	ofstream Guardar;
-	ifstream Leer;
-	ofstream Temp;
-	Leer.open("socios.txt");
-	Temp.open("socios.txt",ios::app);
-	Leer>>nombre;
-	bool encontrado = false;
-	cout<<"Ingrese el dni de la persona que se quiera eliminar:"<<endl;
-	cin>>Bclave;
-	while(getline(Leer,texto)){
-		 //Leer>>clave;
-		 if(clave=texto.find(Bclave,0)!= (string::npos)){
-			 encontrado = true;
-			 texto.replace(texto.find(Bclave,0),texto.length(),"");
-			 Temp<<texto<<endl;
-			 cout<<"Eliminado"<<endl;
-			 break;
-		 }else{
-			Temp<<"Nombre:"<<texto<<endl;
-		 }
-	}if(encontrado == false){
-		cout<<"Clave no encontrada"<<endl;
-		quitarSocio();
-	 }
+	char nombre[20], apellidos[20], dni[20], email[20], contrasenya[20], cuentaBancaria[20];
 
-	 remove("socios.txt");
-	 rename("socios.txt","socios.txt");
-	 Leer.close();
-	 Temp.close();
+	ifstream salida;
+	salida.open("socios.txt", ios::in);
 
+	ofstream entrada;
+	entrada.open("temp.txt", ios::out);
+
+	if (salida.fail()) {
+		cout<< "Hubo un error al abrir el archivo socios.txt";
+		getch();
+	}else
+	{
+		char aux[20];
+		cout<< "Introduzca el nombre: ";
+		cin>>aux;
+
+		salida>>nombre;
+
+		while(!salida.eof()){
+			salida>>apellidos>>dni>>email>>contrasenya>>cuentaBancaria;
+
+			if (strcmp(aux,nombre)==0) {
+				cout<< "Se ha eliminado";
+				getch();
+			}else{
+				entrada<<nombre<<" "<<apellidos<<" "<<dni<<" "<<email<<" "<<contrasenya<<" "<<cuentaBancaria<<endl;
+			}
+			salida>>nombre;
+		}
+
+		entrada.close();
+		salida.close();
+		remove("socios.txt");
+		rename("temp.txt", "socios.txt");
+		exit(0);
+	}
 }
 void quitarTodosLosSocios(){
 	remove("socios.txt");
