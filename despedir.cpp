@@ -140,40 +140,43 @@ extern "C" void menuBorrarTorneo(){
 	}
 }
 void despedirInstructor(){
-	int clave;
-	string Bclave;
-	char nombre[30];
-	string texto;
-	ofstream Guardar;
-	ifstream Leer;
-	ofstream Temp;
-	Leer.open("instructores.txt");
-	Temp.open("instructores.txt",ios::app);
-	Leer>>nombre;
-	bool encontrado = false;
-	cout<<"Ingrese el dni del instructor que se quiera eliminar:"<<endl;
-	cin>>Bclave;
-	while(getline(Leer,texto)){
-		 //Leer>>clave;
-		 if(clave=texto.find(Bclave,0)!= (string::npos)){
-			 encontrado = true;
-			 texto.replace(texto.find(Bclave,0),texto.length(),"");
-			 Temp<<texto<<endl;
-			 cout<<"Eliminado"<<endl;
-			 break;
-		 }else{
-			Temp<<"Nombre:"<<texto<<endl;
-		 }
-	}if(encontrado == false){
-		cout<<"Clave no encontrada"<<endl;
-		quitarSocio();
-	 }
+	char nombre[20], dni[20], email[20], contrasenya[20], dir[20], cuentaBancaria[20];
 
-	 remove("instructores.txt");
-	 rename("instructores.txt","instructores.txt");
-	 Leer.close();
-	 Temp.close();
+		ifstream salida;
+		salida.open("instructores.txt", ios::in);
 
+		ofstream entrada;
+		entrada.open("tempI.txt", ios::out);
+
+		if (salida.fail()) {
+			cout<< "Hubo un error al abrir el archivo instructores.txt";
+			getch();
+		}else
+		{
+			char aux[20];
+			cout<< "Introduzca el nombre: ";
+			cin>>aux;
+
+			salida>>nombre;
+
+			while(!salida.eof()){
+				salida>>dni>>email>>contrasenya>>dir>>cuentaBancaria;
+
+				if (strcmp(aux,nombre)==0) {
+					cout<< "Se ha eliminado";
+					getch();
+				}else{
+					entrada<<nombre<<" "<<dni<<" "<<email<<" "<<contrasenya<<" "<<dir<<" "<<cuentaBancaria<<endl;
+				}
+				salida>>nombre;
+			}
+
+			entrada.close();
+			salida.close();
+			remove("instructores.txt");
+			rename("tempI.txt", "instructores.txt");
+			exit(0);
+		}
 }
 void despedirTodosLosIntructores(){
 	remove("instructores.txt");
@@ -201,39 +204,44 @@ extern "C" void menuDespedirInstructor(){
 }
 void despedirTrabajador()
 {
-	int clave;
-	string Bclave;
-	char nombre[30];
-	string texto;
-	ofstream Guardar;
-	ifstream Leer;
-	ofstream Temp;
-	Leer.open("trabajadores.txt");
-	Temp.open("trabajadores.txt",ios::app);
-	Leer>>nombre;
-	bool encontrado = false;
-	cout<<"Ingrese el dni del trabajador que se quiera eliminar:"<<endl;
-	cin>>Bclave;
-	while(getline(Leer,texto)){
-		 //Leer>>clave;
-		 if(clave=texto.find(Bclave,0)!= (string::npos)){
-			 encontrado = true;
-			 texto.replace(texto.find(Bclave,0),texto.length(),"");
-			 Temp<<texto<<endl;
-			 cout<<"Eliminado"<<endl;
-			 break;
-		 }else{
-			Temp<<"Nombre:"<<texto<<endl;
-		 }
-	}if(encontrado == false){
-		cout<<"Clave no encontrada"<<endl;
-		quitarSocio();
-	 }
+	char dni[20], email[20], contrasenya[20], cuentaBancaria[20];
+		int sueldo[20];
 
-	 remove("trabajadores.txt");
-	 rename("trabajadores.txt","trabajadores.txt");
-	 Leer.close();
-	 Temp.close();
+		ifstream salida;
+		salida.open("trabajadores.txt", ios::in);
+
+		ofstream entrada;
+		entrada.open("tempT.txt", ios::out);
+
+		if (salida.fail()) {
+			cout<< "Hubo un error al abrir el archivo trabajadores.txt";
+			getch();
+		}else
+		{
+			char aux[20];
+			cout<< "Introduzca el DNI: ";
+			cin>>aux;
+
+			salida>>dni;
+
+			while(!salida.eof()){
+				salida>>email>>contrasenya>>cuentaBancaria;
+
+				if (strcmp(aux,dni)==0) {
+					cout<< "Se ha eliminado";
+					getch();
+				}else{
+					entrada<<dni<<" "<<email<<" "<<contrasenya<<" "<<cuentaBancaria<<endl;
+				}
+				salida>>dni;
+			}
+
+			entrada.close();
+			salida.close();
+			remove("trabajadores.txt");
+			rename("tempT.txt", "trabajadores.txt");
+			exit(0);
+		}
 }
 
 void despedirTodosLosTrabajadores(){
