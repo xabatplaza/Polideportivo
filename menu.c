@@ -21,9 +21,9 @@ void menuDespedir(){		//Panel de opciones para crear trabajador o instructor
 	char eleccion;
 	int i = 1;
 	while(i==1){
-		printf("\n1. Desapuntar socio\n");
-		printf("2. Despedir instructor\n");
-		printf("3. Despedir trabajador\n");
+		printf("\n1. Borrar a los socios\n");
+		printf("2. Despedir a los instructor\n");
+		printf("3. Despedir a los trabajador\n");
 		printf("4. Atras\n");
 		printf("\n");
 		printf("Opcion? ->  ");
@@ -31,11 +31,13 @@ void menuDespedir(){		//Panel de opciones para crear trabajador o instructor
 		fgets(str, MAX_LINE, stdin);
 		sscanf(str, "%s", &eleccion);
 		if (eleccion == '1'){
-			menuQuitarSocio();
+			quitarTodosLosSocios();
+			system("cls");
 		}else if (eleccion == '2'){
-			menuDespedirInstructor();
+			despedirTodosLosIntructores();
 		}else if(eleccion=='3'){
-			menuDespedirTrabajador();
+			despedirTodosLosTrabajadores();
+			system("cls");
 		}else if(eleccion =='4'){
 			system("cls");
 			i++;
@@ -235,8 +237,8 @@ char menuSocio(){
 char menuTrabajador(){ ///cambiar por los valores que queramos introducir
 	printf("\n1. Apuntar a socio\n");
 	printf("2. Acceder a la base de datos\n");
-	printf("3. Asignar socio a torneo\n");//Desasignar
-	printf("4. Asignar socio a actividad\n");//Desasignar
+	printf("3. Asignar socio a actividad\n");//Desasignar
+	printf("4. Asignar socio a torneo\n");//Desasignar
 	printf("5.Ver lista de torneos/actividades\n");
 	printf("6. Salir\n");
 	printf("\n");
@@ -364,7 +366,7 @@ void logIn(){		//Funcion para loguearse como admin,socio y trabajador
 								break;
 						case '6':
 								system("cls");
-								menuBorrarTorneo();
+								borrarTodosLosTorneos();
 								break;
 						case '7':
 								crearActividad();

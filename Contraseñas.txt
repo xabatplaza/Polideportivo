@@ -1,0 +1,11 @@
+Para iniciar sesion como admin:
+USUARIO: admin1
+Contraseña: 1234
+
+Para iniciar sesion como socio:
+USUARIO: socio1@gmail.com
+Contraseña: 123456789
+
+Para iniciar sesion como trabajador:
+DNI: 11111111A
+Contraseña: 123456789

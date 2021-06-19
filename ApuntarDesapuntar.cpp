@@ -69,21 +69,24 @@ extern "C" void apuntarSocioTorneo(){
 	ifstream archivo;
 	string texto;
 	string respuesta;
+	ofstream guardar;
 	int esta;
 	string dni;
 	cout << "Cual es el DNI? "<<endl;
 	cin >> dni;
 	archivo.open("torneos.txt");
+	guardar.open("SociosTorneos.txt",ios::app);
 	cout << "A que torneo se quieres apuntar? "<<endl;
 	cin >> respuesta;
 	if(archivo.is_open()){
 		while(!archivo.eof()){
 			getline(archivo,texto);
 			if(esta=texto.find(respuesta,0)!= (string::npos)){
-				cout<<"Añadido al torneo "<<respuesta<<"DNI: "<<dni<<endl;
+				cout<<"Añadido al torneo "<<respuesta<<" DNI: "<<dni<<endl;
+				guardar<<"DNI del socio: "<<dni<<". Torneo que esta apuntado: "<<respuesta;
+			}
 		}
 	}
-}
 
 	archivo.close();
 	system("pause");
@@ -94,18 +97,21 @@ extern "C" void apuntarSocioActividad(){
 	ifstream archivo;
 	string texto;
 	string respuesta;
+	ofstream guardar;
 	int esta;
 	string dni;
 	cout << "Cual es el DNI? "<<endl;
 	cin >> dni;
 	archivo.open("actividades.txt");
+	guardar.open("SociosActividad.txt",ios::app);
 	cout << "A que actividad se quieres apuntar? "<<endl;
 	cin >> respuesta;
 	if(archivo.is_open()){
 		while(!archivo.eof()){
 			getline(archivo,texto);
 			if(esta=texto.find(respuesta,0)!= (string::npos)){
-				cout<<"Añadido a la actividad "<<respuesta<<"DNI: "<<dni<<endl;
+				cout<<"Añadido a la actividad "<<respuesta<<" DNI: "<<dni<<endl;
+				guardar<<"DNI del socio: "<<dni<<". Actividad que esta apuntado: "<<respuesta;
 		}
 	}
 }

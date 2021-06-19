@@ -10,7 +10,7 @@
 #include <fstream>
 
 using namespace std;
-void quitarSocio(){
+extern "C" void quitarSocio(){
 	char nombre[20], apellidos[20], dni[20], email[20], contrasenya[20], cuentaBancaria[20];
 
 	ifstream salida;
@@ -49,7 +49,7 @@ void quitarSocio(){
 		exit(0);
 	}
 }
-void quitarTodosLosSocios(){
+extern "C" void quitarTodosLosSocios(){
 	remove("socios.txt");
 	exit(0);
 }
@@ -78,7 +78,7 @@ extern "C" void menuQuitarSocio(){
 	}
 }
 
-void borrarTorneo(){
+extern "C" void borrarTorneo(){
 	int clave;
 	string Bclave;
 	char nombre[30];
@@ -113,7 +113,7 @@ void borrarTorneo(){
 	 Leer.close();
 	 Temp.close();
 }
-void borrarTodosLosTorneos(){
+extern "C" void borrarTodosLosTorneos(){
 	remove("torneos.txt");
 	exit(0);
 }
@@ -139,7 +139,7 @@ extern "C" void menuBorrarTorneo(){
 		}
 	}
 }
-void despedirInstructor(){
+extern "C" void despedirInstructor(){
 	char nombre[20], dni[20], email[20], contrasenya[20], dir[20], cuentaBancaria[20];
 
 		ifstream salida;
@@ -178,7 +178,7 @@ void despedirInstructor(){
 			exit(0);
 		}
 }
-void despedirTodosLosIntructores(){
+extern "C" void despedirTodosLosIntructores(){
 	remove("instructores.txt");
 	exit(0);
 }
@@ -244,7 +244,7 @@ void despedirTrabajador()
 		}
 }
 
-void despedirTodosLosTrabajadores(){
+extern "C" void despedirTodosLosTrabajadores(){
 	/*FILE * archivo = fopen("trabajadores.txt","a");
 	fclose(archivo);*/
 	remove("trabajadores.txt");
