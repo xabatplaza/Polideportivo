@@ -31,12 +31,12 @@ void menuDespedir(){		//Panel de opciones para crear trabajador o instructor
 		fgets(str, MAX_LINE, stdin);
 		sscanf(str, "%s", &eleccion);
 		if (eleccion == '1'){
-			quitarTodosLosSocios();
+			menuQuitarSocio();
 			system("cls");
 		}else if (eleccion == '2'){
-			despedirTodosLosIntructores();
+			menuDespedirInstructor();
 		}else if(eleccion=='3'){
-			despedirTodosLosTrabajadores();
+			menuDespedirTrabajador();
 			system("cls");
 		}else if(eleccion =='4'){
 			system("cls");
