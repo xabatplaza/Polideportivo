@@ -17,37 +17,37 @@ void crearInstructor(){
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
 		sscanf(str, "%s", &(ins->nombre));
-		fprintf(archivo," %s ",&(ins->nombre));
+		fprintf(archivo," Nombre:%s ",&(ins->nombre));
 
 		printf("DNI: ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
 		sscanf(str, "%s", &(ins->dni));
-		fprintf(archivo," %s ",&(ins->dni));
+		fprintf(archivo," DNI:%s ",&(ins->dni));
 
 		printf("Email: ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
 		sscanf(str, "%s", &(ins->email));
-		fprintf(archivo," %s ",&(ins->email));
+		fprintf(archivo," Email:%s ",&(ins->email));
 
 		printf("Contraseña: ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
 		sscanf(str, "%s", &(ins->contrasenya));
-		fprintf(archivo," %s ",&(ins->contrasenya));
+		fprintf(archivo," Contraseña:%s ",&(ins->contrasenya));
 
 		printf("Direccion: ");
 		fflush(stdout);
 		fgets(str,MAX_LINE, stdin);
 		sscanf(str, "%s", &(ins->dir));
-		fprintf(archivo, " %s",&(ins->dir));
+		fprintf(archivo, " Direccion:%s",&(ins->dir));
 
 		printf("Cuenta Bancaria: ISBN ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
 		sscanf(str, "%s", &(ins->cuentaBancaria));
-		fprintf(archivo," %s\n",&(ins->cuentaBancaria));
+		fprintf(archivo," Cuenta_Bancaria_ISBN:%s\n",&(ins->cuentaBancaria));
 		fclose(archivo);
 		system("pause");
 		system("cls");

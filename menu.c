@@ -24,7 +24,8 @@ void menuDespedir(){		//Panel de opciones para crear trabajador o instructor
 		printf("\n1. Borrar a los socios\n");
 		printf("2. Despedir a los instructor\n");
 		printf("3. Despedir a los trabajador\n");
-		printf("4. Atras\n");
+		printf("4. Eliminar torneos\n");
+		printf("5. Atras\n");
 		printf("\n");
 		printf("Opcion? ->  ");
 		fflush(stdout);
@@ -38,7 +39,11 @@ void menuDespedir(){		//Panel de opciones para crear trabajador o instructor
 		}else if(eleccion=='3'){
 			menuDespedirTrabajador();
 			system("cls");
-		}else if(eleccion =='4'){
+		}
+		else if(eleccion=='4'){
+			menuBorrarTorneo();
+			system("cls");
+		}else if(eleccion =='5'){
 			system("cls");
 			i++;
 		}else{

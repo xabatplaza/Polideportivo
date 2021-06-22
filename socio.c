@@ -17,38 +17,38 @@ void crearSocio(){
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
 		sscanf(str, "%s", &(s->nombre));
-		fprintf(archivo," %s ",&(s->nombre));
+		fprintf(archivo," Nombre:%s ",&(s->nombre));
 
 		printf("Apellidos: ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
 		sscanf(str, "%s", &(s->apellidos));
-		fprintf(archivo," %s ",&(s->apellidos));
+		fprintf(archivo," Apellidos:%s ",&(s->apellidos));
 
 		printf("DNI: ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
 		sscanf(str, "%s", &(s->dni));
-		fprintf(archivo," %s ",&(s->dni));
+		fprintf(archivo," DNI:%s ",&(s->dni));
 
 		printf("Email: ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
 		sscanf(str, "%s", &(s->email));
-		fprintf(archivo," %s ",&(s->email));
+		fprintf(archivo," Email:%s ",&(s->email));
 
 		printf("Contraseña: ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
 		sscanf(str, "%s", &(s->contrasenya));
-		fprintf(archivo," %s ",&(s->contrasenya));
+		fprintf(archivo," Contraseña:%s ",&(s->contrasenya));
 
 
 		printf("Cuenta Bancaria: ISBN ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
 		sscanf(str, "%s", &(s->cuentaBancaria));
-		fprintf(archivo," %s\n",&(s->cuentaBancaria));
+		fprintf(archivo," Cuenta_Bancaria_ISBN:%s\n",&(s->cuentaBancaria));
 		fclose(archivo);
 
 

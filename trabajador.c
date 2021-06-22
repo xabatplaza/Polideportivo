@@ -17,26 +17,26 @@ void crearTrabajador(){
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
 		sscanf(str, "%s", &(t->dni));
-		fprintf(archivo," %s ",&(t->dni));
+		fprintf(archivo," DNI:%s ",&(t->dni));
 
 		printf("Email: ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
 		sscanf(str, "%s", &(t->email));
-		fprintf(archivo," %s ",&(t->email));
+		fprintf(archivo," Email:%s ",&(t->email));
 
 		printf("Contraseña: ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
 		sscanf(str, "%s", &(t->contrasenya));
-		fprintf(archivo," %s ",&(t->contrasenya));
+		fprintf(archivo," Contraseña:%s ",&(t->contrasenya));
 
 
 		printf("¿A que cuenta se transfiere el dinero?: ISBN ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
 		sscanf(str, "%s", &(t->cuentaBancaria));
-		fprintf(archivo," %s\n",&(t->cuentaBancaria));
+		fprintf(archivo," ISBN:%s\n",&(t->cuentaBancaria));
 
 		fclose(archivo);
 		system("pause");

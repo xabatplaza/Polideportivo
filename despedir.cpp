@@ -10,8 +10,11 @@
 #include <fstream>
 
 using namespace std;
+
 extern "C" void quitarSocio(){
 	char nombre[20], apellidos[20], dni[20], email[20], contrasenya[20], cuentaBancaria[20];
+
+	char no[8] = "Nombre:";
 
 	ifstream salida;
 	salida.open("socios.txt", ios::in);
@@ -27,6 +30,8 @@ extern "C" void quitarSocio(){
 		char aux[20];
 		cout<< "Introduzca el nombre: ";
 		cin>>aux;
+		strcat(no,aux);
+		strcpy(aux,no);
 
 		salida>>nombre;
 
@@ -37,7 +42,7 @@ extern "C" void quitarSocio(){
 				cout<< "Se ha eliminado";
 				getch();
 			}else{
-				entrada<<nombre<<" "<<apellidos<<" "<<dni<<" "<<email<<" "<<contrasenya<<" "<<cuentaBancaria<<endl;
+				entrada<<" "<<nombre<<" "<<apellidos<<" "<<dni<<" "<<email<<" "<<contrasenya<<" "<<cuentaBancaria<<endl;
 			}
 			salida>>nombre;
 		}
@@ -49,6 +54,7 @@ extern "C" void quitarSocio(){
 		exit(0);
 	}
 }
+
 extern "C" void quitarTodosLosSocios(){
 	remove("socios.txt");
 	exit(0);
@@ -79,39 +85,47 @@ extern "C" void menuQuitarSocio(){
 }
 
 extern "C" void borrarTorneo(){
-	int clave;
-	string Bclave;
-	char nombre[30];
-	string texto;
-	ofstream Guardar;
-	ifstream Leer;
-	ofstream Temp;
-	Leer.open("torneos.txt");
-	Temp.open("torneos.txt",ios::app);
-	Leer>>nombre;
-	bool encontrado = false;
-	cout<<"Ingrese la clave del torneo que se quiera eliminar:"<<endl;
-	cin>>Bclave;
-	while(getline(Leer,texto)){
-		 //Leer>>clave;
-		 if(clave=texto.find(Bclave,0)!= (string::npos)){
-			 encontrado = true;
-			 texto.replace(texto.find(Bclave,0),texto.length(),"");
-			 Temp<<texto<<endl;
-			 cout<<"Eliminado"<<endl;
-			 break;
-		 }else{
-			Temp<<"Nombre:"<<texto<<endl;
-		 }
-	}if(encontrado == false){
-		cout<<"Clave no encontrada"<<endl;
-		quitarSocio();
-	 }
+	char nombre[20], participantes[20], direccion[20], fecha[20];
 
-	 remove("torneos.txt");
-	 rename("torneos.txt","torneos.txt");
-	 Leer.close();
-	 Temp.close();
+		char no[15] = "Nombre_Torneo:";
+
+		ifstream salida;
+		salida.open("torneos.txt", ios::in);
+
+		ofstream entrada;
+		entrada.open("tempTr.txt", ios::out);
+
+		if (salida.fail()) {
+			cout<< "Hubo un error al abrir el archivo torneos.txt";
+			getch();
+		}else
+		{
+			char aux[20];
+			cout<< "Introduzca el nombre del torneo: ";
+			cin>>aux;
+			strcat(no,aux);
+			strcpy(aux,no);
+
+			salida>>nombre;
+
+			while(!salida.eof()){
+				salida>>participantes>>direccion>>fecha;
+
+				if (strcmp(aux,nombre)==0) {
+					cout<< "Se ha eliminado";
+					getch();
+				}else{
+					entrada<<" "<<nombre<<" "<<participantes<<" "<<direccion<<" "<<fecha<<endl;
+				}
+				salida>>nombre;
+			}
+
+			entrada.close();
+			salida.close();
+			remove("torneos.txt");
+			rename("tempTr.txt", "torneos.txt");
+			exit(0);
+		}
 }
 extern "C" void borrarTodosLosTorneos(){
 	remove("torneos.txt");
@@ -120,7 +134,7 @@ extern "C" void borrarTodosLosTorneos(){
 
 extern "C" void menuBorrarTorneo(){
 	string opcion;
-	cout << "\n1. Borrar Torneo \n" << endl;
+	cout << "\n Borrar Torneo \n" << endl;
 	cout << "1. Borra un torneo\n" << endl;
 	cout << "2. Borrar todos los torneos\n" << endl;
 	cout << "\nIngrese una opcion: " << endl;
@@ -142,6 +156,8 @@ extern "C" void menuBorrarTorneo(){
 extern "C" void despedirInstructor(){
 	char nombre[20], dni[20], email[20], contrasenya[20], dir[20], cuentaBancaria[20];
 
+	char no[8] = "Nombre:";
+
 		ifstream salida;
 		salida.open("instructores.txt", ios::in);
 
@@ -156,6 +172,9 @@ extern "C" void despedirInstructor(){
 			char aux[20];
 			cout<< "Introduzca el nombre: ";
 			cin>>aux;
+			strcat(no,aux);
+			strcpy(aux,no);
+
 
 			salida>>nombre;
 
@@ -207,6 +226,8 @@ void despedirTrabajador()
 	char dni[20], email[20], contrasenya[20], cuentaBancaria[20];
 		int sueldo[20];
 
+		char no[8] = "DNI:";
+
 		ifstream salida;
 		salida.open("trabajadores.txt", ios::in);
 
@@ -221,6 +242,8 @@ void despedirTrabajador()
 			char aux[20];
 			cout<< "Introduzca el DNI: ";
 			cin>>aux;
+			strcat(no,aux);
+			strcpy(aux,no);
 
 			salida>>dni;
 
