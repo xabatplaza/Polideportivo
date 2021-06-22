@@ -8,6 +8,7 @@ extern "C"{
 #include "sqlite3.h"
 #include "BD.h"
 }
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

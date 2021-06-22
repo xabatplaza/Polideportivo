@@ -15,7 +15,43 @@
 #define Longitud 80
 #define MAX_LINE 500
 #define MAX_LINE_INT 4
+void menuCrearTodo(){
+	char str[MAX_LINE];
+	char eleccion;
+	int i = 1;
+	while(i==1){
+		printf("\n1. Crear socios\n"); //Crear socios, trabajador, torneo, instructor o actividad
+		printf("2. Crear trabajador\n");
+		printf("3. Crear instructor\n");
+		printf("4. Crear torneo\n");
+		printf("5. Crear actividad\n");
+		printf("6. Atras\n");
+		printf("\n");
+		printf("Opcion? ->  ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &eleccion);
+		if (eleccion == '1'){
+			crearSocio();
+		}else if (eleccion == '2'){
+			crearTrabajador();
+		}else if(eleccion=='3'){
+			crearInstructor();
+		}else if(eleccion == '4'){
+			crearTorneo();
+		}else if (eleccion == '5'){
+			crearActividad();
+		}else if(eleccion =='6'){
+			system("cls");
+			i++;
+		}else{
+			printf("Error");
+		}
 
+	}
+
+
+}
 void menuDespedir(){		//Panel de opciones para crear trabajador o instructor
 	char str[MAX_LINE];
 	char eleccion;
@@ -183,7 +219,39 @@ void listaTorneoActividad(){		//Funcion para listar torneos y actividades
 
 
 }
+void menuObjetos(){
+	char str[MAX_LINE];
+	char eleccion;
+	int i = 1;
+	while(i==1){
+		printf("\n1. Crear raquetas\n");
+		printf("2. Crear Pelotas\n");
+		printf("3. Atras\n");
+		printf("\n");
+		printf("Opcion? ->  ");
+		fflush(stdout);
+		fgets(str, MAX_LINE, stdin);
+		sscanf(str, "%s", &eleccion);
+		if (eleccion == '1'){
+			system("cls");
+			crearUnaNuevaRaqueta();
+			i++;
+			system("cls");
+		}else if (eleccion == '2'){
+			system("cls");
+			crearUnaNuevaPelota();
+			i++;
+			system("cls");
+		}else if(eleccion=='3'){
+			system("cls");
+			i++;
+		}else{
+			printf("Error");
+		}
 
+	}
+
+}
 char menu(){ //Menu principal de eleccion
 		system("cls");
 		printf("\n\t\t %cBIENVENIDO AL POLIDEPORTIVO DE TUS SUE%cOS!",173,165);
@@ -203,15 +271,11 @@ char menu(){ //Menu principal de eleccion
 
 
 char menuAdministrador(){ //cambiar por los valores que queramos introducir
-	printf("\n1. Crear socios\n");
-	printf("2. Crear trabajador\n");
-	printf("3. Crear torneos\n");
-	printf("4. Crear instructor\n");
-	printf("5. Desapuntar socio/Despedir instructor/Despedir trabajador\n");//FICHEROS
-	printf("6. Borrar torneo\n");//FICHEROS
-	printf("7. Gestionar actividades\n");
-	printf("8. Ver lista de torneos/actividad/socios/instructores\n");
-	printf("9. Salir\n");
+	printf("\n1. Crear socios, trabajador, torneo, instructor o actividad\n");
+	printf("2. Desapuntar socio/Despedir instructor/Despedir trabajador/Borrar torneo\n");//FICHEROS
+	printf("3. Ver lista de torneos/actividad/socios/instructores\n");
+	printf("4. Crear Objetos\n");
+	printf("5. Salir\n");
 	printf("\n");
 	printf("\t%cQu%c opci%cn desea? ->  ",168, 130, 162);
 
@@ -220,7 +284,6 @@ char menuAdministrador(){ //cambiar por los valores que queramos introducir
 	fgets(linea, MAX_LINE, stdin);
 	return *linea;
 	}
-
 char menuSocio(){
 	system("cls");///cambiar por los valores que queramos introducir
 	printf("\n1. Apuntarse a actividad\n");
@@ -352,36 +415,21 @@ void logIn(){		//Funcion para loguearse como admin,socio y trabajador
 			while(1){
 				switch (menuAdministrador()){
 						case '1':
-								crearSocio();
+								system("cls");
+								menuCrearTodo();
 								break;
 						case '2':
-								crearTrabajador();
-								break;
-
-						case '3':
-								crearTorneo();
-								break;
-
-						case '4':
-								crearInstructor();
-								break;
-						case '5':
 								system("cls");
 								menuDespedir();
 								break;
-						case '6':
-								system("cls");
-								borrarTodosLosTorneos();
-								break;
-						case '7':
-								crearActividad();
-								break;
-
-						case '8':
+						case '3':
 								listarTodo();
 								break;
-
-						case '9':
+						case '4':
+								system("cls");
+								menuObjetos();
+								system("cls");
+						case '5':
 								system("cls");
 								main();
 								break;
