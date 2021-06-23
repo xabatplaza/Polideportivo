@@ -33,7 +33,7 @@ public:
 	virtual void crearObjeto();
 
 	Objeto(int precio);
-	int operator +(Objeto x, Objeto y);
+	friend int operator +(Objeto x, Objeto y);
 
 };
 
