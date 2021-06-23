@@ -8,9 +8,15 @@
 #ifndef MENU_H_
 #define MENU_H_
 
+
 void trabajadorInstructor();
 void listarTodo();
 void listaTorneoActividad();
+
+void menuCrearTodo();
+void menuObjetos();
+char menuExterno();
+char menuExternoInicio();
 char menu();
 char menuAdministrador();
 char menuSocio();

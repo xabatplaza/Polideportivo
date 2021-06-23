@@ -15,6 +15,7 @@
 #define Longitud 80
 #define MAX_LINE 500
 #define MAX_LINE_INT 4
+
 void menuCrearTodo(){
 	char str[MAX_LINE];
 	char eleccion;
@@ -52,6 +53,7 @@ void menuCrearTodo(){
 
 
 }
+
 void menuDespedir(){		//Panel de opciones para crear trabajador o instructor
 	char str[MAX_LINE];
 	char eleccion;
@@ -90,6 +92,7 @@ void menuDespedir(){		//Panel de opciones para crear trabajador o instructor
 
 
 }
+
 char menuBaseDatos(){
 	char str[MAX_LINE];
 	char eleccion;
@@ -252,6 +255,35 @@ void menuObjetos(){
 	}
 
 }
+
+char menuExterno(){
+	system("cls");
+
+		printf("1. Registrar Agente Externo \n");
+		printf("2. Mostrar informaci%cn de todos los usuarios \n", 162);
+		printf("3. Salir\n");
+		printf("\n");
+		printf("\t%cQu%c opci%cn desea? ->  ",168, 130, 162);
+		fflush(stdout);
+		char linea[MAX_LINE];
+		fgets(linea, MAX_LINE, stdin);
+		return *linea;
+}
+
+char menuExternoInicio(){
+
+
+		printf("1. Borrar usuario \n");
+		printf("2. Actualizar datos del usuario \n");
+		printf("3. Salir\n");
+		printf("\n");
+		printf("\t%cQu%c opci%cn desea? ->  ",168, 130, 162);
+		fflush(stdout);
+		char linea[MAX_LINE];
+		fgets(linea, MAX_LINE, stdin);
+		return *linea;
+}
+
 char menu(){ //Menu principal de eleccion
 		system("cls");
 		printf("\n\t\t %cBIENVENIDO AL POLIDEPORTIVO DE TUS SUE%cOS!",173,165);
@@ -259,8 +291,10 @@ char menu(){ //Menu principal de eleccion
 		printf("\n1. Iniciar sesi%cn como administrador\n", 162);
 		printf("2. Iniciar sesi%cn como socio\n",162);
 		printf("3. Iniciar sesi%cn como trabajador\n",162);
-		printf("4. Registrarse como nuevo socio\n");
-		printf("5. Salir\n");
+		printf("4. Iniciar sesi%cn como Agente externo del gimnasio\n",162);
+		printf("5. Registrarse como nuevo socio\n");
+		printf("6. Registrarse como Agente externo del gimnasio\n");
+		printf("7. Salir\n");
 		printf("\n");
 		printf("\t%cQu%c opci%cn desea? ->  ",168, 130, 162);
 		fflush(stdout);
@@ -284,6 +318,7 @@ char menuAdministrador(){ //cambiar por los valores que queramos introducir
 	fgets(linea, MAX_LINE, stdin);
 	return *linea;
 	}
+
 char menuSocio(){
 	system("cls");///cambiar por los valores que queramos introducir
 	printf("\n1. Apuntarse a actividad\n");
@@ -428,7 +463,7 @@ void logIn(){		//Funcion para loguearse como admin,socio y trabajador
 						case '4':
 								system("cls");
 								menuObjetos();
-								system("cls");
+								break;
 						case '5':
 								system("cls");
 								main();

@@ -20,4 +20,6 @@ typedef struct{
 
 void crearSocio();
 void listarSocios();
+
+
 #endif /* SOCIO_H_ */
