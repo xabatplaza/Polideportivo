@@ -32,6 +32,9 @@ public:
 	virtual void imprimir();
 	virtual void crearObjeto();
 
+	Objeto(int precio);
+	int operator +(Objeto x, Objeto y);
+
 };
 
 

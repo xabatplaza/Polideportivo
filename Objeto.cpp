@@ -94,3 +94,11 @@ void Objeto::crearObjeto(){
 
 
 }
+
+Objeto::Objeto(int precio){
+	this->precio = precio;
+}
+
+int operator +(Objeto x, Objeto y){
+	return x.getPrecio()+y.getPrecio();
+}
