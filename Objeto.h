@@ -20,8 +20,8 @@ public:
 	~Objeto();
 
 	int getId();
-	char* getNombre();
-	char* getFabricante();
+	char* getNombre() const;
+	char* getFabricante() const;
 	int getPrecio();
 
 	void setId(int id);
@@ -31,9 +31,6 @@ public:
 
 	virtual void imprimir();
 	virtual void crearObjeto();
-
-	Objeto(int precio);
-	friend int operator +(Objeto x, Objeto y);
 
 };
 

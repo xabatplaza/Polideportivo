@@ -56,9 +56,9 @@ void Pelota::setPeso(int peso){
 
 void Pelota::imprimir(){
 	Objeto::imprimir();
-	cout<<"Material de la pelota: "<<this->getMaterialPelota()<<endl;
-	cout<<"Radio: "<<this->getRadio()<<endl;
-	cout<<"Peso: "<<this->getPeso()<<endl;
+	cout<<"Material de la pelota: "<<this->materialPelota<<endl;
+	cout<<"Radio: "<<this->radio<<endl;
+	cout<<"Peso: "<<this->peso<<endl;
 }
 extern "C" void Pelota::crearPelota(){
 	string mpp;
@@ -76,8 +76,8 @@ extern "C" void Pelota::crearPelota(){
 	cout<<"Cuanto pesa la pelota? "<<endl;
 	cin>>pesop;
 	peso = atof(radiop.c_str());
-
-	guardar<<". Material: "<<materialPelota<<". Radio: "<<radio<<". Peso: "<<peso;
+	imprimir();
+	guardar<<". Material: "<<materialPelota<<". Radio: "<<radio<<". Peso: "<<peso<<"\n";
 	guardar.close();
 
 }

@@ -17,9 +17,9 @@ Objeto::Objeto(){
 Objeto::Objeto(int id,char* nombre, char* fabricante, int precio){
 	this->id = id;
 	this->nombre = new char[strlen(nombre)+1];
-	strcpy(this->nombre, nombre);
+	strcpy(this->nombre,nombre);
 	this->fabricante = new char[strlen(fabricante)+1];
-	strcpy(this->fabricante, fabricante);
+	strcpy(this->fabricante,fabricante);
 	this->precio = precio;
 
 }
@@ -27,9 +27,9 @@ Objeto::Objeto(int id,char* nombre, char* fabricante, int precio){
 Objeto::Objeto(Objeto& o){
 	this->id = o.id;
 	this->nombre = new char[strlen(o.nombre)+1];
-	strcpy(this->nombre, o.nombre);
+	strcpy(this->nombre,o.nombre);
 	this->fabricante = new char[strlen(o.fabricante)+1];
-	strcpy(this->fabricante, o.fabricante);
+	strcpy(this->fabricante,o.fabricante);
 	this->precio = o.precio;
 }
 Objeto::~Objeto(){
@@ -39,10 +39,10 @@ Objeto::~Objeto(){
 int Objeto::getId(){
 	return this->id;
 }
-char* Objeto::getNombre(){
+char* Objeto::getNombre() const{
 	return this->nombre;
 }
-char* Objeto::getFabricante(){
+char* Objeto::getFabricante() const{
 	return this->fabricante;
 }
 int Objeto::getPrecio(){
@@ -63,10 +63,13 @@ void Objeto::setPrecio(int precio){
 }
 
 void Objeto::imprimir(){
+	cout<<""<<endl;
+	cout<<"Creado el objeto con las siguientes caracteristicas:"<<endl;
 	cout<<"ID: "<<this->getId()<<endl;
-	cout<<"Nombre: "<<this->getNombre()<<endl;
-	cout<<"Fabricante: "<<this->getFabricante()<<endl;
+	cout<<"Nombre: "<<this->nombre<<endl;
+	cout<<"Fabricante: "<<this->fabricante<<endl;
 	cout<<"Precio: "<<this->getPrecio()<<endl;
+
 }
 void Objeto::crearObjeto(){
 	system("cls");
@@ -93,12 +96,4 @@ void Objeto::crearObjeto(){
 	guardar.close();
 
 
-}
-
-Objeto::Objeto(int precio){
-	this->precio = precio;
-}
-
-int operator +(Objeto x, Objeto y){
-	return x.getPrecio()+y.getPrecio();
 }

@@ -13,7 +13,9 @@ using namespace std;
 extern "C" void crearUnaNuevaPelota(){
 	Pelota* p = new Pelota();
 	p->crearPelota();
+	system("pause");
 	system("cls");
+
 }
 extern "C" void crearUnaNuevaRaqueta(){
 	Raqueta* r = new Raqueta();

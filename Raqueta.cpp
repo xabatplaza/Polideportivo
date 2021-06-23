@@ -59,6 +59,9 @@ void Raqueta::setSocio(char* dni){
 }
 void Raqueta::imprimir(){
 	Objeto::imprimir();
+	cout<<"Tipo: "<<this->tipo<<endl;
+	cout<<"Material: "<<this->material<<endl;
+	cout<<"DNI: "<<this->dni<<endl;
 
 }
 extern "C" void Raqueta::crearRaqueta(){
@@ -87,6 +90,7 @@ extern "C" void Raqueta::crearRaqueta(){
 			if(esta=texto.find(dni,0)!= (string::npos)){
 				cout<<"Guardado!"<<endl;
 				guardar<<". Material: "<<material<<". Tipo de deporte: "<<tipo<<". DNI del socio: "<<dni<<"\n";
+				imprimir();
 		}
 	}
 }

@@ -258,30 +258,29 @@ void menuObjetos(){
 
 char menuExterno(){
 	system("cls");
-
-		printf("1. Registrar Agente Externo \n");
-		printf("2. Mostrar informaci%cn de todos los usuarios \n", 162);
-		printf("3. Salir\n");
-		printf("\n");
-		printf("\t%cQu%c opci%cn desea? ->  ",168, 130, 162);
-		fflush(stdout);
-		char linea[MAX_LINE];
-		fgets(linea, MAX_LINE, stdin);
+	printf("1. Registrar Agente Externo \n");
+	printf("2. Mostrar informaci%cn de todos los usuarios \n", 162);
+	printf("3. Salir\n");
+	printf("\n");
+	printf("\t%cQu%c opci%cn desea? ->  ",168, 130, 162);
+	fflush(stdout);
+	char linea[MAX_LINE];
+	fgets(linea, MAX_LINE, stdin);
 		return *linea;
 }
 
 char menuExternoInicio(){
 
-
-		printf("1. Borrar usuario \n");
-		printf("2. Actualizar datos del usuario \n");
-		printf("3. Salir\n");
-		printf("\n");
-		printf("\t%cQu%c opci%cn desea? ->  ",168, 130, 162);
-		fflush(stdout);
-		char linea[MAX_LINE];
-		fgets(linea, MAX_LINE, stdin);
-		return *linea;
+	system("cls");
+	printf("1. Borrar usuario \n");
+	printf("2. Actualizar datos del usuario \n");
+	printf("3. Salir\n");
+	printf("\n");
+	printf("\t%cQu%c opci%cn desea? ->  ",168, 130, 162);
+	fflush(stdout);
+	char linea[MAX_LINE];
+	fgets(linea, MAX_LINE, stdin);
+	return *linea;
 }
 
 char menu(){ //Menu principal de eleccion
@@ -305,6 +304,7 @@ char menu(){ //Menu principal de eleccion
 
 
 char menuAdministrador(){ //cambiar por los valores que queramos introducir
+	system("cls");
 	printf("\n1. Crear socios, trabajador, torneo, instructor o actividad\n");
 	printf("2. Desapuntar socio/Despedir instructor/Despedir trabajador/Borrar torneo\n");//FICHEROS
 	printf("3. Ver lista de torneos/actividad/socios/instructores\n");
