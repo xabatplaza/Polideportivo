@@ -9,3 +9,9 @@ Contraseña: 123456789
 Para iniciar sesion como trabajador:
 DNI: 11111111A
 Contraseña: 123456789
+
+Para iniciar sesión como agente externo:
+SE TIENE QUE REGISTRAR PRIMERO O utilizar el
+que viene creado de serie:
+USUARIO: prueba
+Contraseña: 123

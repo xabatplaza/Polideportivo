@@ -144,14 +144,11 @@ int main(){
 
 			}else if (eleccion2 == '3'){
 				ingresaUsuario++;
-				main();
 			}
 
 
 	}
 	}else if (opcion == '5'){
-		crearSocio();
-	}else if (opcion == '6'){
 		char eleccion;
 		eleccion = menuExterno();
 		switch (eleccion) {
@@ -187,6 +184,7 @@ int main(){
 
 					cout << endl;
 					cout << "Persona externa guardada" << endl;
+					system("pause");
 
 					if (result != SQLITE_OK) {
 						printf("Error creating personaE \n");
@@ -200,6 +198,7 @@ int main(){
 				case '2':
 
 					mostrartodoP(db);
+					system("pause");
 					break;
 
 				case '3':
@@ -207,9 +206,10 @@ int main(){
 					break;
 
 			}
-	}else if (opcion == '7'){
+	}else if (opcion == '6'){
 		system("cls");
 		printf("\n%cVUELVA PRONTO!\n", 173);
+		system("pause");
 		exit(0);
 	}
 

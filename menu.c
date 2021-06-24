@@ -266,7 +266,7 @@ char menuExterno(){
 	fflush(stdout);
 	char linea[MAX_LINE];
 	fgets(linea, MAX_LINE, stdin);
-		return *linea;
+	return *linea;
 }
 
 char menuExternoInicio(){
@@ -276,7 +276,7 @@ char menuExternoInicio(){
 	printf("2. Actualizar datos del usuario \n");
 	printf("3. Salir\n");
 	printf("\n");
-	printf("\t%cQu%c opci%cn desea? ->  ",168, 130, 162);
+	printf("\tQue opcion desea? ->  ",168, 130, 162);
 	fflush(stdout);
 	char linea[MAX_LINE];
 	fgets(linea, MAX_LINE, stdin);
@@ -292,9 +292,8 @@ char menu(){ //Menu principal de eleccion
 		printf("2. Iniciar sesi%cn como socio\n",162);
 		printf("3. Iniciar sesi%cn como trabajador\n",162);
 		printf("4. Iniciar sesi%cn como Agente externo del gimnasio\n",162);
-		printf("5. Registrarse como nuevo socio\n");
-		printf("6. Registrarse como Agente externo del gimnasio\n");
-		printf("7. Salir\n");
+		printf("5. Registrarse como Agente externo del gimnasio\n");
+		printf("6. Salir\n");
 		printf("\n");
 		printf("\t%cQu%c opci%cn desea? ->  ",168, 130, 162);
 		fflush(stdout);
@@ -375,7 +374,8 @@ void mostrarQuejas(){
 	   for (i = 0;i < p;i++)  {
 			printf("%s \n", palabras[i]);
 		}
-	   printf("\n%cEsperamos solucionar sus problemas lo antes posible, muchas gracias!", 173);
+	   printf("\n%cEsperamos solucionar sus problemas lo antes posible, muchas gracias!\n", 173);
+	   system("pause");
 	   free(palabras);
 	   palabras= NULL;
 
@@ -497,7 +497,6 @@ void logIn(){		//Funcion para loguearse como admin,socio y trabajador
 	        		case '4':
 	        				mostrarQuejas(); //socio1@gmail.com
 
-	        				exit(0);
 	        				break;
 
 	        		case '5':
@@ -528,11 +527,13 @@ void logIn(){		//Funcion para loguearse como admin,socio y trabajador
 		        				system("cls");
 		        				listarActividad();
 		        				apuntarSocioActividad();
+		        				system("cls");
 		        				break;
 		        		case '4':
 		        				system("cls");
 		        				listarTorneos();
 		        				apuntarSocioTorneo();
+		        				system("cls");
 		        				break;
 		        		case '5':
 		        				listaTorneoActividad();

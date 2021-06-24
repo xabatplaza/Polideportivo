@@ -9,11 +9,12 @@
 #define MENU_H_
 
 
+void menuCrearTodo();
+void menuDespedir();
+char menuBaseDatos();
 void trabajadorInstructor();
 void listarTodo();
 void listaTorneoActividad();
-
-void menuCrearTodo();
 void menuObjetos();
 char menuExterno();
 char menuExternoInicio();
@@ -23,6 +24,7 @@ char menuSocio();
 char menuTrabajador();
 void mostrarQuejas();
 void logIn();
-char menuBaseDatos();
+
+
 
 #endif /* MENU_H_ */

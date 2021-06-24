@@ -23,8 +23,8 @@ void crearActividad(){
 		printf("Numero de socios que se pueden apuntar: ");
 		fflush(stdout);
 		fgets(str, MAX_LINE, stdin);
-		sscanf(str, "%i", &(a->numSocios));
-		fprintf(archivo,"Numero de socios: %i ",&(a->numSocios));
+		sscanf(str, "%s", &(a->numSocios));
+		fprintf(archivo,"Numero de socios: %s ",&(a->numSocios));
 
 		printf("Descripcion: ");
 		fflush(stdout);
