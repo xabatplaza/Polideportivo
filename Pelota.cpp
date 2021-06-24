@@ -69,15 +69,15 @@ extern "C" void Pelota::crearPelota(){
 	Objeto::crearObjeto();
 	cout << "Cual es el material de la pelota? "<<endl;
 	cin >> mpp;
-	materialPelota = (char*)mpp.c_str();
-	cout<<"Cual es el radio de la pelota? "<<endl;
+	this->materialPelota = (char*)mpp.c_str();
+	cout<<"Cual es el radio de la pelota? (cm) "<<endl;
 	cin>>radiop;
-	radio = atof(radiop.c_str());
-	cout<<"Cuanto pesa la pelota? "<<endl;
+	this->radio = atof(radiop.c_str());
+	cout<<"Cuanto pesa la pelota? (gramos)"<<endl;
 	cin>>pesop;
-	peso = atof(radiop.c_str());
+	this->peso = atof(pesop.c_str());
 	imprimir();
-	guardar<<". Material: "<<materialPelota<<". Radio: "<<radio<<". Peso: "<<peso<<"\n";
+	guardar<<". Material: "<<this->materialPelota<<". Radio: "<<this->radio<<". Peso: "<<this->peso<<"\n";
 	guardar.close();
 
 }
