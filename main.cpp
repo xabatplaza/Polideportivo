@@ -63,24 +63,32 @@ int main(){
 		p.setEMail(emailPersonaE);
 		p.setContrasenya(contrasenyaPersonaE);
 
-		result= confirmarPersonaE(db, p);
+		result= comprobarPersonaE(db, p);
 
 
 		if (!result) {
-			printf("This isn't your account\n");
-			printf("%s\n", sqlite3_errmsg(db));
+			cout << endl;
+			cout << "Cuenta y/o contraseña incorrectas, intentelo de nuevo." << endl;
+			cout << "-------------" << endl;
+			cout << sqlite3_errmsg(db) << endl;
+			cout << endl;
 			return result;
-			ingresaUsuario=0;
 
 		}
 
-		cout << "Sesion iniciada" << endl;
+		cout << endl;
+		cout << "     " << "---------------" << endl;
+		cout << "     " << "Sesion iniciada" << endl;
+		cout << "     " << "---------------" << endl;
+		cout << endl;
+		system("pause");
 
 		ingresaUsuario=1;
 		char eleccion2;
 
 		while(ingresaUsuario==1){
 			eleccion2 = menuExternoInicio();
+
 			if(eleccion2 == '1'){
 				setlocale(LC_ALL, "");
 				system("cls");
@@ -100,6 +108,7 @@ int main(){
 				result= borrarUsuarioP(db, p);
 				mostrarUBorrar(db);
 				system("pause");
+
 			}else if (eleccion2 == '2'){
 
 				system("cls");
@@ -110,7 +119,7 @@ int main(){
 				cin >> emailU;
 
 				cout << endl;
-				cout << "Escribe tu contraseña: " << endl;
+				cout << "Escribe tu nueva contraseña deseada: " << endl;
 				char contrasenyaU[15];
 				cin >> contrasenyaU;
 
@@ -121,10 +130,10 @@ int main(){
 
 				result= updatePersonaE(db, p);
 
-				cout << "Persona externa actualizada" << endl;
+
 
 				if (result != SQLITE_OK) {
-					printf("Error creating personaE \n");
+					printf("Error actualizando el usuario \n");
 					printf("%s\n", sqlite3_errmsg(db));
 					return result;
 					system("pause");
@@ -132,6 +141,7 @@ int main(){
 
 				mostrarUnoP(db, p);
 				system("pause");
+
 			}else if (eleccion2 == '3'){
 				ingresaUsuario++;
 				main();
@@ -175,6 +185,7 @@ int main(){
 
 					result= crearPersonaE(db, p);
 
+					cout << endl;
 					cout << "Persona externa guardada" << endl;
 
 					if (result != SQLITE_OK) {

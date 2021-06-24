@@ -26,7 +26,7 @@ static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
 	return 0;
 }
 
-bool existePersonaE(sqlite3 *db, PersonaExterna p){
+bool ExistsPersonaE(sqlite3 *db, PersonaExterna p){
 
 
 		sqlite3_stmt *stmt;
@@ -64,7 +64,7 @@ int crearPersonaE(sqlite3 *db, PersonaExterna p){
 		string contrasenya = p.getContrasenya();
 		string puestoTrabajo= p.getPuestoTrabajo();
 
-		if (!existePersonaE(db, p)) {
+		if (!ExistsPersonaE(db, p)) {
 
 			string comando = "INSERT INTO personae (nombre, email, contrasenya, puestoTrabajo ) VALUES ('" + nombre + "', '"
 					+ email + "', '" + contrasenya + "', '" + puestoTrabajo +  "')";
@@ -84,14 +84,14 @@ int crearPersonaE(sqlite3 *db, PersonaExterna p){
 			return result;
 
 		} else {
-			cout << "El usuario introducido ya esta en la base de datos" << endl;
+			cout << "El usuario introducido ya esta registrado en la base de datos" << endl;
 		}
 
 		return 0;
 }
 
 
-bool confirmarPersonaE(sqlite3 *db, PersonaExterna p){
+bool comprobarPersonaE(sqlite3 *db, PersonaExterna p){
 	sqlite3_stmt *stmt;
 
 		string email = p.getEMail();

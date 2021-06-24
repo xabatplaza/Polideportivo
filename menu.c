@@ -284,6 +284,7 @@ char menuExternoInicio(){
 }
 
 char menu(){ //Menu principal de eleccion
+
 		system("cls");
 		printf("\n\t\t %cBIENVENIDO AL POLIDEPORTIVO DE TUS SUE%cOS!",173,165);
 		printf("\n\t\t  -----------------------------------------\n");

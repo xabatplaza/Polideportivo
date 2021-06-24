@@ -14,8 +14,8 @@
 #include <string>
 
 int crearPersonaE(sqlite3 *db, PersonaExterna p);
-bool confirmarPersonaE(sqlite3 *db, PersonaExterna p);
-bool existePersonaE(sqlite3 *db, PersonaExterna p);
+bool comprobarPersonaE(sqlite3 *db, PersonaExterna p);
+bool ExistsPersonaE(sqlite3 *db, PersonaExterna p);
 int mostrartodoP(sqlite3 *db);
 bool borrarUsuarioP(sqlite3 *db, PersonaExterna p);
 int mostrarUBorrar(sqlite3 *db);
